@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>英语语法七阶体系 · 从零基础到流利</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAF9F6;--surface:#FFFFFF;--surface2:#F4F2ED;
+  --text:#1B1A18;--muted:#6E6A64;--line:#E6E3DC;--accent:#185FA5;
+  --shadow:0 1px 2px rgba(0,0,0,.04);
+  --c-subj-b:#E6F1FB;--c-subj-t:#0C447C;
+  --c-verb-b:#FAECE7;--c-verb-t:#712B13;
+  --c-obj-b:#EAF3DE;--c-obj-t:#27500A;
+  --c-adv-b:#F1EFE8;--c-adv-t:#444441;
+  --c-clause-b:#EEEDFE;--c-clause-t:#3C3489;
+  --c-pred-b:#FAEEDA;--c-pred-t:#633806;
+}
+html[data-t="dark"]{
+  --bg:#171614;--surface:#201F1D;--surface2:#2A2825;
+  --text:#EDEAE3;--muted:#9C978F;--line:#35322D;--accent:#85B7EB;
+  --shadow:none;
+  --c-subj-b:#0C447C;--c-subj-t:#B5D4F4;
+  --c-verb-b:#712B13;--c-verb-t:#F5C4B3;
+  --c-obj-b:#27500A;--c-obj-t:#C0DD97;
+  --c-adv-b:#3A3A38;--c-adv-t:#D3D1C7;
+  --c-clause-b:#3C3489;--c-clause-t:#CECBF6;
+  --c-pred-b:#633806;--c-pred-t:#FAC775;
+}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--text);font-size:15px;line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+}
+.app{display:flex}
+.side{
+  width:288px;flex:0 0 288px;height:100vh;position:sticky;top:0;
+  background:var(--surface);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;overflow:hidden;z-index:20;
+}
+.brand{padding:26px 22px 18px}
+.brand-k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.brand h1{font-size:17px;font-weight:500;letter-spacing:.01em}
+.brand-s{font-size:12px;color:var(--muted);margin-top:5px}
+.tools{display:flex;gap:8px;padding:0 18px 14px}
+.tools input{
+  flex:1;min-width:0;background:var(--surface2);border:1px solid transparent;
+  border-radius:8px;padding:8px 11px;font-size:13px;color:var(--text);
+  font-family:inherit;outline:none;
+}
+.tools input:focus{border-color:var(--line)}
+.tools input::placeholder{color:var(--muted)}
+#theme{
+  width:36px;flex:0 0 36px;background:var(--surface2);border:none;border-radius:8px;
+  color:var(--muted);cursor:pointer;font-size:14px;font-family:inherit;
+}
+#theme:hover{color:var(--text)}
+.nav{flex:1;overflow-y:auto;padding:4px 14px 20px;scrollbar-width:thin}
+.nav::-webkit-scrollbar{width:5px}
+.nav::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.ns{margin-bottom:4px}
+.ns>a{
+  display:flex;align-items:center;gap:9px;padding:7px 8px;border-radius:7px;
+  color:var(--text);text-decoration:none;font-size:13.5px;font-weight:500;
+}
+.ns>a:hover{background:var(--surface2)}
+.ns>a i{width:3px;height:15px;border-radius:2px;flex:0 0 auto;font-style:normal}
+.ns>a span{font-size:11px;color:var(--muted);font-weight:400;margin-left:auto}
+.ni{
+  display:block;padding:5px 8px 5px 24px;border-radius:6px;text-decoration:none;
+  font-size:12.5px;color:var(--muted);line-height:1.5;
+}
+.ni:hover{background:var(--surface2);color:var(--text)}
+.ni.on{color:var(--accent);background:var(--surface2)}
+.ni.done::after{content:" ✓";color:#1D9E75}
+.entry{
+  display:block;margin:6px 14px 12px;padding:11px 13px;border-radius:9px;
+  border:1px solid var(--line);background:var(--surface2);text-decoration:none;color:var(--text);
+}
+.entry:hover{border-color:var(--accent)}
+.entry span{display:block;font-size:13px;font-weight:500}
+.entry small{display:block;font-size:11.5px;color:var(--muted);margin-top:2px;line-height:1.5}
+.prog{padding:14px 22px 20px;border-top:1px solid var(--line)}
+.prog-t{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);margin-bottom:7px}
+.prog-b{height:3px;background:var(--surface2);border-radius:2px;overflow:hidden}
+.prog-f{height:100%;width:0;background:#1D9E75;border-radius:2px;transition:width .3s}
+main{flex:1;min-width:0;padding:0 44px}
+.wrap{max-width:770px;margin:0 auto;padding:60px 0 140px}
+
+.hero{margin-bottom:56px;padding-bottom:36px;border-bottom:1px solid var(--line)}
+.hero-tag{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.hero h1{font-size:34px;font-weight:500;line-height:1.28;letter-spacing:-.01em}
+.hero p{font-size:15px;color:var(--muted);margin-top:16px;max-width:600px}
+.hero-meta{display:flex;gap:36px;margin-top:28px;flex-wrap:wrap}
+.hero-meta div b{display:block;font-size:23px;font-weight:500;line-height:1.2}
+.hero-meta div span{font-size:12px;color:var(--muted)}
+.lines{margin-top:32px;padding:20px 22px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.lines h4{font-size:12px;letter-spacing:.08em;color:var(--muted);font-weight:400;margin-bottom:12px}
+.lines ol{list-style:none;counter-reset:l}
+.lines li{counter-increment:l;position:relative;padding-left:26px;font-size:13.5px;margin-bottom:9px;color:var(--text)}
+.lines li:before{content:counter(l);position:absolute;left:0;top:1px;font-size:11px;color:var(--muted)}
+.lines li b{font-weight:500}
+
+.stage{margin-bottom:66px;scroll-margin-top:20px}
+.sh{display:flex;gap:15px;align-items:flex-start;padding-bottom:18px;margin-bottom:24px;border-bottom:2px solid var(--line)}
+.sno{font-size:12px;font-weight:500;letter-spacing:.06em;padding:5px 9px;border-radius:6px;flex:0 0 auto;margin-top:3px}
+.sh h2{font-size:21px;font-weight:500;line-height:1.4}
+.sh h2 em{font-style:normal;font-size:12.5px;color:var(--muted);font-weight:400;margin-left:9px;letter-spacing:.02em}
+.sh p{font-size:13px;color:var(--muted);margin-top:5px;max-width:560px}
+
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:13px;
+  padding:23px 25px;margin-bottom:15px;box-shadow:var(--shadow);
+  scroll-margin-top:20px;transition:border-color .2s;
+}
+.card:hover{border-color:var(--line)}
+.ch{display:flex;align-items:baseline;gap:11px;margin-bottom:11px}
+.ch .ix{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;flex:0 0 auto;padding-top:2px}
+.ch h3{font-size:16.5px;font-weight:500;flex:1;line-height:1.5}
+.ch h3 em{font-style:normal;font-size:12px;color:var(--muted);font-weight:400;margin-left:8px}
+.chk{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--muted);cursor:pointer;flex:0 0 auto;user-select:none;padding-top:3px}
+.chk input{width:13px;height:13px;accent-color:#1D9E75;cursor:pointer}
+.card.done{border-color:rgba(29,158,117,.45)}
+.card.done .chk{color:#1D9E75}
+.core{font-size:14px;color:var(--text);line-height:1.75}
+.formula{
+  margin-top:14px;padding:13px 16px;border-radius:9px;background:var(--surface2);
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;
+  line-height:1.95;white-space:pre-wrap;color:var(--text);
+}
+table{width:100%;border-collapse:collapse;margin-top:15px;font-size:13.5px}
+th{text-align:left;font-weight:400;font-size:11.5px;letter-spacing:.04em;color:var(--muted);padding:7px 10px;border-bottom:1px solid var(--line)}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.65}
+tr:last-child td{border-bottom:none}
+td:first-child{white-space:nowrap;font-weight:500;color:var(--text)}
+td b{font-weight:500;color:var(--accent)}
+.ex{margin-top:16px}
+.ex-r{padding:10px 0 10px 14px;border-left:2px solid var(--line)}
+.ex-e{font-family:Georgia,"Times New Roman",serif;font-size:16px;line-height:1.6;color:var(--text)}
+.ex-e b{font-weight:500;color:var(--accent);background:rgba(24,95,165,.08);padding:0 3px;border-radius:3px}
+html[data-t="dark"] .ex-e b{background:rgba(133,183,235,.14)}
+.ex-z{font-size:12.5px;color:var(--muted);margin-top:3px}
+.ex-n{font-size:11.5px;color:var(--muted);margin-top:5px;opacity:.85}
+.pit{margin-top:16px;list-style:none}
+.pit li{position:relative;padding-left:19px;font-size:13px;line-height:1.7;margin-bottom:5px;color:var(--text)}
+.pit li:before{content:"";position:absolute;left:3px;top:10px;width:5px;height:5px;border-radius:50%;background:#D9A03C}
+.tip{
+  margin-top:15px;padding:11px 15px;border-radius:8px;font-size:12.5px;line-height:1.7;
+  background:rgba(127,119,221,.09);border-left:2px solid rgba(127,119,221,.55);color:var(--text);
+}
+.tip b{font-weight:500;color:#534AB7;margin-right:7px;font-size:11px;letter-spacing:.05em}
+html[data-t="dark"] .tip b{color:#AFA9EC}
+mark{background:#FAC775;color:#412402;padding:0 2px;border-radius:3px}
+html[data-t="dark"] mark{background:#633806;color:#FAC775}
+.io{margin-top:16px;display:flex;gap:8px}
+.io button{
+  padding:7px 14px;border:1px solid var(--line);border-radius:8px;
+  background:var(--surface);color:var(--muted);font-size:12.5px;font-family:inherit;cursor:pointer;
+}
+.io button:hover{background:var(--surface2);color:var(--text)}
+.analysis-wrap{max-width:760px;margin:0 auto;padding:44px 28px 80px}
+.analysis-back{
+  display:inline-block;margin-bottom:22px;color:var(--muted);text-decoration:none;
+  font-size:13px;padding:8px 14px;border:1px solid var(--line);border-radius:8px;
+}
+.analysis-back:hover{background:var(--surface2);color:var(--text)}
+.analysis-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:34px}
+.analysis-top h1{font-size:21px;font-weight:500}
+.analysis-sub{font-size:13px;color:var(--muted);margin-top:6px;max-width:460px}
+.analysis-hud{display:flex;gap:8px;flex:0 0 auto;align-items:center}
+.analysis-chip{font-size:11.5px;padding:5px 10px;border-radius:6px;background:var(--surface2);color:var(--muted);white-space:nowrap}
+.analysis-panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:30px 32px 26px;margin-bottom:16px}
+.analysis-sent{font-family:Georgia,"Times New Roman",serif;font-size:21px;line-height:2.1;letter-spacing:.005em;margin-bottom:14px}
+.analysis-tok{padding:2px 5px;border-radius:5px;transition:background .2s,color .2s;cursor:pointer;border-bottom:1px dashed transparent}
+.analysis-tok:hover{background:var(--surface2)}
+.analysis-tok.correct{background:#1D9E75;color:#fff;border-bottom-color:transparent}
+.analysis-tok.wrong{background:#E24B4A;color:#fff;animation:ashake .4s}
+@keyframes ashake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.analysis-tok.on[data-r="subj"]{background:var(--c-subj-b);color:var(--c-subj-t)}
+.analysis-tok.on[data-r="verb"]{background:var(--c-verb-b);color:var(--c-verb-t)}
+.analysis-tok.on[data-r="obj"]{background:var(--c-obj-b);color:var(--c-obj-t)}
+.analysis-tok.on[data-r="adv"]{background:var(--c-adv-b);color:var(--c-adv-t)}
+.analysis-tok.on[data-r="clause"]{background:var(--c-clause-b);color:var(--c-clause-t)}
+.analysis-tok.on[data-r="pred"]{background:var(--c-pred-b);color:var(--c-pred-t)}
+.analysis-zh{font-size:13px;color:var(--muted);padding-top:10px;border-top:1px solid var(--line)}
+.analysis-question{
+  font-size:14.5px;font-weight:500;color:var(--text);
+  padding:12px 16px;border-radius:9px;background:var(--surface);
+  border:1px solid var(--line);margin-bottom:10px;
+}
+.analysis-feedback{font-size:13px;color:#E24B4A;min-height:20px;margin:0 0 10px 2px}
+.analysis-zh-btn{
+  margin:0 0 14px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;
+  background:transparent;color:var(--muted);font-size:12.5px;font-family:inherit;cursor:pointer;
+}
+.analysis-zh-btn:hover{background:var(--surface2);color:var(--text)}
+.analysis-list-btn{
+  padding:5px 12px;border:1px solid var(--line);border-radius:6px;background:transparent;
+  color:var(--muted);font-size:12px;font-family:inherit;cursor:pointer;
+}
+.analysis-list-btn:hover{background:var(--surface2);color:var(--text)}
+.analysis-note{
+  font-size:13.5px;line-height:1.75;color:var(--text);
+  padding:14px 16px;border-radius:9px;background:var(--surface2);
+  min-height:52px;margin-bottom:14px;
+}
+.analysis-note b{font-weight:500;color:var(--accent)}
+.analysis-call{
+  font-family:Consolas,ui-monospace,monospace;font-size:13px;line-height:1.9;
+  padding:14px 16px;border-radius:9px;border:1px solid var(--line);
+  color:var(--muted);word-break:break-word;display:none;
+}
+.analysis-call.show{display:block}
+.analysis-call .k{color:var(--c-verb-t)}
+.analysis-dots{display:flex;gap:5px;margin:18px 0 0;flex-wrap:wrap}
+.analysis-dot{width:22px;height:3px;border-radius:2px;background:var(--line)}
+.analysis-dot.done{background:var(--accent)}
+.analysis-foot{display:flex;justify-content:space-between;gap:10px;margin-top:6px}
+.analysis-foot button{
+  flex:1;padding:11px;border:1px solid var(--line);border-radius:9px;background:var(--surface);
+  color:var(--text);font-size:13.5px;font-family:inherit;cursor:pointer;
+}
+.analysis-foot button:hover{background:var(--surface2)}
+.analysis-foot button:disabled{opacity:.35;cursor:default}
+.analysis-tipbox{margin-top:26px;font-size:12.5px;color:var(--muted);line-height:1.9}
+.analysis-tipbox b{color:var(--text);font-weight:500}
+.analysis-list{
+  margin:0 0 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);
+  max-height:360px;overflow-y:auto;
+}
+.analysis-item{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;
+  border-bottom:1px solid var(--line);cursor:pointer;text-decoration:none;color:var(--text);
+}
+.analysis-item:last-child{border-bottom:none}
+.analysis-item:hover{background:var(--surface2)}
+.analysis-item.cur{background:var(--surface2)}
+.analysis-item-no{font-size:11px;color:var(--muted);width:24px;flex:0 0 auto;font-variant-numeric:tabular-nums}
+.analysis-item-lv{font-size:11px;color:var(--muted);flex:0 0 auto;padding:2px 7px;border-radius:4px;background:var(--surface2);white-space:nowrap}
+.analysis-item-zh{font-size:13px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}
+.analysis-item-done{font-size:13px;color:#1D9E75;flex:0 0 auto}
+@media(max-width:600px){
+  .analysis-wrap{padding:28px 16px 60px}
+  .analysis-panel{padding:22px 18px}
+  .analysis-sent{font-size:18px}
+  .analysis-top{flex-direction:column;gap:14px}
+}
+.hide{display:none!important}
+.end{margin-top:70px;padding-top:30px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.9}
+#menu{display:none}
+@media(max-width:920px){
+  .side{position:fixed;left:0;top:0;transform:translateX(-100%);transition:transform .25s}
+  .side.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,.2)}
+  main{padding:0 20px}
+  .wrap{padding:40px 0 100px}
+  #menu{
+    display:block;position:fixed;left:14px;top:14px;z-index:30;width:38px;height:38px;
+    border-radius:9px;background:var(--surface);border:1px solid var(--line);
+    color:var(--text);font-size:15px;cursor:pointer;
+  }
+}
+@media print{
+  .side,#menu,.chk{display:none}
+  body{background:#fff}
+  main{padding:0}
+  .card{break-inside:avoid;box-shadow:none;page-break-inside:avoid}
+  .stage{page-break-before:always}
+  .stage:first-of-type{page-break-before:auto}
+}
+</style>
+</head>
+<body>
+<button id="menu">☰</button>
+<div class="app">
+  <aside class="side" id="side">
+    <div class="brand">
+      <div class="brand-k">English Grammar</div>
+      <h1>七阶语法体系</h1>
+      <div class="brand-s">从零基础到流利 · 64 个知识点</div>
+    </div>
+    <div class="tools">
+      <input id="q" type="search" placeholder="搜索知识点…">
+      <button id="theme" title="切换主题">◐</button>
+    </div>
+    <nav class="nav" id="nav"></nav>
+    <a class="entry" id="toTrain" href="#">
+      <span>拆句训练</span>
+      <small>用函数调用法拆长难句 →</small>
+    </a>
+    <div class="prog">
+      <div class="prog-t"><span>学习进度</span><span id="pt">0 / 42</span></div>
+      <div class="prog-b"><div class="prog-f" id="pf"></div></div>
+    </div>
+  </aside>
+  <main>
+    <div id="view-grammar" class="view-panel">
+    <div class="wrap">
+      <section class="hero">
+        <div class="hero-tag">A complete path</div>
+        <h1>英语语法七阶体系</h1>
+        <p>不是零散的知识点清单，而是一条有顺序的路：先认清零件，再组装句子，最后把句子连成话。</p>
+        <div class="hero-meta">
+          <div><b>7</b><span>个阶段</span></div>
+          <div><b>64</b><span>个知识点</span></div>
+          <div><b>208</b><span>条例句</span></div>
+        </div>
+        <div class="lines">
+          <h4>这套体系由三条线交织而成</h4>
+          <ol>
+            <li><b>句子复杂度</b>　简单句 → 并列句 → 复合句 → 简化从句 → 名词化</li>
+            <li><b>动词系统</b>　时态 → 体 → 语态 → 语气（情态与虚拟）</li>
+            <li><b>从句子到篇章</b>　句法 → 衔接 → 语域</li>
+          </ol>
+        </div>
+      </section>
+      <div id="body"></div>
+      <div class="end">
+        建议用法：零基础从第 01 阶顺读，每学完一个知识点勾上「已掌握」。有基础的人可以直接从第 04 阶开始，遇到卡壳的再往回翻。<br>
+        每个知识点只讲一件事，配例句和易错点，不做题海。
+        <div class="io">
+          <button id="expBtn">导出进度</button>
+          <button id="impBtn">导入进度</button>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div id="view-analysis" class="view-panel hide">
+      <div class="analysis-wrap">
+        <a class="analysis-back" id="toLearn" href="#">← 返回手册</a>
+        <div class="analysis-top">
+          <div>
+            <h1>长难句拆解训练</h1>
+            <p class="analysis-sub">系统出题，你点击句子中对应的词。答对继续，答错重试。</p>
+          </div>
+          <div class="analysis-hud">
+            <span class="analysis-chip" id="analysis-counter">1 / 20</span>
+            <span class="analysis-chip" id="analysis-level">热身</span>
+            <button class="analysis-list-btn" id="analysis-listBtn">题库</button>
+          </div>
+        </div>
+        <div class="analysis-list hide" id="analysis-list"></div>
+        <div class="analysis-panel">
+          <div class="analysis-sent" id="analysis-sentence"></div>
+          <button class="analysis-zh-btn" id="analysis-zhBtn">👁️ 查阅翻译</button>
+          <div class="analysis-zh hide" id="analysis-zh"></div>
+          <div class="analysis-dots" id="analysis-dots"></div>
+        </div>
+        <div class="analysis-question" id="analysis-question">第 1 步：请点击句中的主句谓语动词</div>
+        <div class="analysis-feedback" id="analysis-feedback"></div>
+        <div class="analysis-note hide" id="analysis-note"></div>
+        <div class="analysis-call" id="analysis-call"></div>
+        <div class="analysis-foot">
+          <button id="analysis-prev">上一句</button>
+          <button id="analysis-next">下一句</button>
+        </div>
+        <div class="analysis-tipbox">
+          <b>怎么玩：</b>系统每步出一道题，你点击句子中对应的词。答对绿灯，答错红灯抖动。<br>
+          <b>为什么这么练：</b>读长句卡住，通常不是单词不认识，是找不到骨架。先把谓语拎出来，句子立刻分成「函数名 + 参数」两块。
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+const DATA = [
+{
+  id:"s1", no:"01", title:"地基", en:"Foundations", color:"#B5D4F4", ink:"#185FA5",
+  desc:"先认清零件，再组装句子。这一阶不是背知识，是建立「句子可以拆开看」的意识。",
+  items:[
+    {
+      id:"s1-1", t:"词性八类", en:"Parts of Speech",
+      core:"英语所有单词都归入八类。认不出词性，就判断不出它在句子里干什么活，句子也就读不懂。",
+      head:["词性","作用","例子"],
+      rows:[
+        ["名词 n.","人、事物、概念","book, water, idea"],
+        ["动词 v.","动作或状态","run, be, seem"],
+        ["形容词 adj.","修饰名词","big, happy, wooden"],
+        ["副词 adv.","修饰动词、形容词或整句","quickly, very, fortunately"],
+        ["代词 pron.","代替名词","he, this, someone"],
+        ["介词 prep.","表示时间、地点、方式等关系","in, on, with, despite"],
+        ["连词 conj.","连接词、短语或句子","and, but, because"],
+        ["限定词 det.","限定名词的范围","the, my, some, three"]
+      ],
+      examples:[
+        {en:"The <b>quick</b> fox <b>jumps</b> <b>over</b> the lazy dog.", zh:"那只敏捷的狐狸跳过懒狗。", note:"quick 形容词修饰 fox；jumps 动词；over 介词带出宾语 the lazy dog。"}
+      ],
+      pitfall:[
+        "同一个词经常换词性：work 可作名词（工作）也可作动词（工作），要看它在句子里的位置。",
+        "中文的「的」多对应形容词，「地」多对应副词：quick（快的）／quickly（快地）。"
+      ],
+      tip:"拿到一个生词先问两件事：它属于哪一类？它在句子里干什么活？"
+    },
+    {
+      id:"s1-2", t:"句子成分", en:"Sentence Elements",
+      core:"句子由成分构成，成分由词性填充。这是两层，初学最容易混在一起。",
+      head:["成分","回答什么问题","例子"],
+      rows:[
+        ["主语 S","谁 / 什么","The children"],
+        ["谓语 V","做什么 / 是什么","are playing"],
+        ["宾语 O","动作的承受者","football"],
+        ["表语 P","主语是什么、怎么样（跟在 be 后面）","a teacher / tired"],
+        ["定语","什么样的（修饰名词）","the tall boy 里的 tall"],
+        ["状语","何时、何地、如何、为何","in the park"]
+      ],
+      formula:"The tall boy (定语) plays (谓语) football (宾语) in the park (状语).\n主语 = the tall boy（定语 + 名词一起做主语）",
+      examples:[
+        {en:"My brother <b>bought</b> a new car yesterday.", zh:"我哥昨天买了辆新车。", note:"brother 是主语核心，bought 谓语，a new car 宾语，yesterday 状语。"},
+        {en:"She <b>looks</b> tired.", zh:"她看起来累了。", note:"looks 这里是系动词，tired 是表语，不是宾语。"}
+      ],
+      pitfall:[
+        "中文没有「表语」这个概念，容易把 be 后面的名词当宾语。She is a doctor 里 a doctor 是表语。",
+        "定语可以很长，但核心永远是那个名词：the book on the desk 的核心是 book。"
+      ]
+    },
+    {
+      id:"s1-3", t:"五种基本句型", en:"Five Sentence Patterns",
+      core:"英语所有句子都是这五种骨架之一。判断句型只看一件事：动词后面跟了什么。",
+      head:["句型","结构","例句","动词类型"],
+      rows:[
+        ["SV","主 + 谓","Birds fly.","不及物动词"],
+        ["SVO","主 + 谓 + 宾","I love music.","及物动词"],
+        ["SVP","主 + 谓 + 表","She is a doctor.","系动词 be / seem / become"],
+        ["SVOO","主 + 谓 + 双宾","He gave me a book.","give / send / tell / show"],
+        ["SVOC","主 + 谓 + 宾 + 宾补","They elected him president.","make / keep / elect / call"]
+      ],
+      examples:[
+        {en:"Birds <b>fly</b>.", zh:"鸟会飞。", note:"fly 后面什么都不跟，SV。"},
+        {en:"He <b>gave</b> me a book.", zh:"他给了我一本书。", note:"me 和 a book 都是宾语，SVOO。"},
+        {en:"They <b>elected</b> him president.", zh:"他们选他当主席。", note:"him 是宾语，president 补充说明 him，SVOC。"}
+      ],
+      pitfall:[
+        "「我同意」是 I agree（S + V），不是 I am agree——agree 是动词，不需要 be。",
+        "SVOO 和 SVOC 的区别：两个东西能不能各自独立存在。give me a book 里 me 和 a book 是两样东西；elect him president 里 president 就是 him 的身份，不是另一件东西。"
+      ],
+      tip:"先找动词，再看动词后面跟了几个东西。这一步做对，句子就不会写歪。"
+    },
+    {
+      id:"s1-4", t:"be 动词", en:"The Verb To Be",
+      core:"be 不表示动作，它更像一个等号，把主语和后面的东西连起来：身份、状态、位置。",
+      formula:"现在时：I am ／ you-we-they are ／ he-she-it is\n过去时：I-he-she-it was ／ you-we-they were\n否定：be + not\n疑问：be 提到主语前",
+      examples:[
+        {en:"She <b>is</b> an engineer.", zh:"她是工程师。", note:"表身份"},
+        {en:"She <b>is</b> tired.", zh:"她累了。", note:"表状态，后接形容词"},
+        {en:"They <b>are</b> in the kitchen.", zh:"他们在厨房。", note:"表位置"},
+        {en:"She <b>is not</b> tired. / <b>Is</b> she tired?", zh:"否定和疑问都靠 be 自己变形。"}
+      ],
+      pitfall:[
+        "中文「我很累」没有 be，英语必须有：I very tired ✗ → I am very tired ✓",
+        "be 后面接形容词，不接副词：I am happily ✗ → I am happy ✓",
+        "be 后面不能再跟动词原形：I am agree ✗ → I agree ✓"
+      ]
+    },
+    {
+      id:"s1-5", t:"there be 存在句", en:"There is / There are",
+      core:"there be 表示「某处存在某物」。真正的主语是 be 后面的名词，there 只是个占位的词。",
+      formula:"There is + 单数 / 不可数 + 地点\nThere are + 复数 + 地点\n否定：There isn't / There aren't\n疑问：Is there...? / Are there...?",
+      examples:[
+        {en:"<b>There is</b> a cat on the sofa.", zh:"沙发上有一只猫。"},
+        {en:"<b>There are</b> two cats on the sofa.", zh:"沙发上有两只猫。"},
+        {en:"<b>Is there</b> a bank near here?", zh:"这附近有银行吗？"}
+      ],
+      pitfall:[
+        "中文的「有」不等于 have：There have a book ✗ → There is a book ✓",
+        "就近原则：There <b>is</b> a pen and two books.（靠近 be 的是单数 pen，就用 is）"
+      ],
+      tip:"there be 说的是「存在」，have 说的是「拥有」。有生命的主语才用 have。"
+    },
+    {
+      id:"s1-6", t:"一般疑问句", en:"Yes / No Questions",
+      core:"把助动词搬到主语前面。句子里没有助动词，就借一个 do / does / did。",
+      formula:"有 be / 情态动词 / have：直接提前\n  Are you ready?\n  Can she swim?\n\n只有实义动词：借 Do / Does / Did\n  Do you like coffee?\n  Does he like coffee?\n  Did you see him?",
+      examples:[
+        {en:"<b>Are</b> you ready?", zh:"你准备好了吗？", note:"be 提前"},
+        {en:"<b>Can</b> she swim?", zh:"她会游泳吗？", note:"情态动词提前"},
+        {en:"<b>Do</b> you like coffee?", zh:"你喜欢咖啡吗？", note:"借 do，like 保持原形"},
+        {en:"<b>Does</b> he like coffee?", zh:"他喜欢咖啡吗？", note:"借 does，like 不加 s"},
+        {en:"<b>Did</b> you see him?", zh:"你看见他了吗？", note:"借 did，see 回到原形"}
+      ],
+      pitfall:[
+        "借了 does 动词就不能再加 s：Does he likes ✗ → Does he like ✓",
+        "借了 did 动词就不能用过去式：Did you saw ✗ → Did you see ✓"
+      ],
+      tip:"助动词是「吸收剂」——时态和人称的标记都被它吸走，后面的动词一律回原形。"
+    },
+    {
+      id:"s1-7", t:"特殊疑问句", en:"Wh- Questions",
+      core:"疑问词放句首，后面接一般疑问句的语序。也就是说，问句里几乎总要倒装。",
+      formula:"疑问词 + 助动词/be + 主语 + 动词？",
+      head:["疑问词","问什么","例句"],
+      rows:[
+        ["What","什么","What do you want?"],
+        ["Who","谁（作主语时）","Who called you?"],
+        ["Whom","谁（作宾语，正式）","Whom did you see?"],
+        ["Where","哪里","Where do you live?"],
+        ["When","何时","When does it start?"],
+        ["Why","为什么","Why are you late?"],
+        ["How","如何、多少","How did you do it?"],
+        ["Whose","谁的","Whose bag is this?"]
+      ],
+      examples:[
+        {en:"<b>Where</b> do you live?", zh:"你住哪儿？", note:"疑问词 + do + 主语 + 动词原形"},
+        {en:"<b>What</b> did she say?", zh:"她说什么了？", note:"借了 did，say 回原形"},
+        {en:"<b>Who</b> called you?", zh:"谁给你打的电话？", note:"疑问词本身是主语，不倒装"},
+        {en:"<b>How long</b> have you been here?", zh:"你在这儿多久了？", note:"how long 问时间段"}
+      ],
+      pitfall:[
+        "疑问词后面仍要倒装：Where you are from ✗ → Where are you from ✓",
+        "唯一的例外是疑问词本身作主语，这时不倒装：Who called you?（不是 Who did call you?）"
+      ]
+    },
+    {
+      id:"s1-8", t:"冠词", en:"Articles",
+      core:"冠词只解决一个问题：这个名词，听的人知不知道你指哪一个。知道用 the，不知道用 a/an。",
+      head:["形式","用法","例子"],
+      rows:[
+        ["a / an","泛指「某一个」，只接单数可数名词","I saw a dog."],
+        ["the","特指「那个」，双方都知道指哪个","The dog was barking."],
+        ["零冠词","泛指复数或不可数名词","Dogs are loyal. / I like music."]
+      ],
+      examples:[
+        {en:"She is <b>a</b> teacher.", zh:"她是老师。", note:"众多老师中的一个，不特定"},
+        {en:"She is <b>the</b> teacher I told you about.", zh:"她就是我跟你提过的那位老师。", note:"双方都知道指谁"},
+        {en:"<b>Dogs</b> are loyal.", zh:"狗是忠诚的。", note:"泛指整个类别，用复数零冠词"}
+      ],
+      pitfall:[
+        "泛指一类东西不能用 the：I like the music ✗ → I like music ✓",
+        "a / an 看的是读音不是字母：an hour（h 不发音）、a university（读 /juː/ 开头）"
+      ],
+      tip:"先问「对方能不能锁定是哪一个」，能锁定就 the，不能就 a/an，泛指复数或不可数就什么都不加。"
+    },
+    {
+      id:"s1-9", t:"名词：可数与不可数", en:"Nouns: Countable & Uncountable",
+      core:"英语名词先分两类：能不能数。这个分类决定了冠词、量词和动词单复数的用法。",
+      head:["类型","特点","例子"],
+      rows:[
+        ["可数名词","能加 a / an，有复数形式","a book / two books"],
+        ["不可数名词","不能加 a / an，没有复数","water, information, advice"],
+        ["既可数又不可数","意思会变","a paper（论文）/ paper（纸）"]
+      ],
+      formula:"复数变化：\n一般 +s：book → books\n以 s / x / ch / sh 结尾 +es：box → boxes\n辅音 + y → ies：city → cities\n部分 f / fe → ves：knife → knives\n不规则：man → men，child → children，foot → feet\n\n所有格：单数 + 's，复数只加 '\nthe boy's bag ／ the boys' bags",
+      examples:[
+        {en:"I need some <b>information</b>.", zh:"我需要一些信息。", note:"information 不可数，不加 s"},
+        {en:"She gave me two <b>pieces of advice</b>.", zh:"她给了我两条建议。", note:"不可数名词靠量词计数"},
+        {en:"the <b>boy's</b> bag ／ the <b>boys'</b> bags", zh:"男孩的书包／男孩们的书包", note:"单数加 's，复数只加 '"}
+      ],
+      pitfall:[
+        "不可数名词加 s：informations ✗ → information ✓",
+        "不可数名词直接加 a / an：a advice ✗ → a piece of advice ✓",
+        "高频不可数：information、advice、furniture、equipment、luggage、news、money"
+      ],
+      tip:"中文能加「个」的，英语多半可数；不能加「个」的（水、信息、建议），多半不可数。"
+    },
+    {
+      id:"s1-10", t:"代词", en:"Pronouns",
+      core:"代词代替名词，避免重复。难点是分清两套形式：主格与宾格，形容词性物主与名词性物主。",
+      head:["人称","主格","宾格","形容词性物主","名词性物主","反身代词"],
+      rows:[
+        ["我","I","me","my","mine","myself"],
+        ["你 / 你们","you","you","your","yours","yourself / yourselves"],
+        ["他","he","him","his","his","himself"],
+        ["她","she","her","her","hers","herself"],
+        ["它","it","it","its","its","itself"],
+        ["我们","we","us","our","ours","ourselves"],
+        ["他们","they","them","their","theirs","themselves"]
+      ],
+      examples:[
+        {en:"<b>She</b> gave <b>me</b> <b>her</b> book, but I want <b>mine</b>.", zh:"她给了我她的书，但我想要我自己的。"},
+        {en:"He hurt <b>himself</b>.", zh:"他伤到了自己。"},
+        {en:"This is <b>my</b> book. = This book is <b>mine</b>.", zh:"形容词性物主 + 名词 ＝ 名词性物主。"}
+      ],
+      pitfall:[
+        "主格宾格别混：Me and him went ✗ → He and I went ✓（主语位置用主格）",
+        "its（它的）和 it's（it is）是两个完全不同的东西",
+        "介词后面用宾格：between you and <b>me</b>（不是 I）"
+      ]
+    },
+    {
+      id:"s1-11", t:"限定词与量词", en:"Determiners & Quantifiers",
+      core:"限定词决定名词的范围和数量。可数还是不可数，配的量词完全不一样。",
+      head:["量词","接什么","例子"],
+      rows:[
+        ["some / any","可数复数或不可数","some books / some water"],
+        ["many / much","many 接可数，much 接不可数","many books / much water"],
+        ["a few / a little","有一点，肯定意味","a few books / a little water"],
+        ["few / little","几乎没有，否定意味","few books / little water"],
+        ["a lot of / lots of","两者都行","a lot of books / water"],
+        ["each / every","只接单数可数","each student / every day"],
+        ["both / either / neither","两者之间","both of them / neither of them"]
+      ],
+      examples:[
+        {en:"There are <b>a few</b> apples left.", zh:"还剩几个苹果。", note:"有，够用"},
+        {en:"There are <b>few</b> apples left.", zh:"几乎没苹果了。", note:"否定意味，差一个 a 就反了"},
+        {en:"I don't have <b>much</b> time.", zh:"我时间不多。"}
+      ],
+      pitfall:[
+        "much 只接不可数：much books ✗ → many books ✓",
+        "a few 和 few、a little 和 little，差一个 a 意思就反了",
+        "every 后面接单数：Every students ✗ → Every student ✓",
+        "some 一般用于肯定句，any 用于否定和疑问；但表邀请或请求时仍用 some：Would you like <b>some</b> tea?"
+      ]
+    },
+    {
+      id:"s1-12", t:"指示代词与不定代词", en:"Demonstratives & Indefinites",
+      core:"除了人称代词，还有两类高频代词：指「这、那」的指示代词，和指「某、任何、每」的不定代词。",
+      head:["类型","词","例子"],
+      rows:[
+        ["指示代词","this / that / these / those","This is my desk. / Those are yours."],
+        ["不定·人","someone / anyone / everyone / no one","Someone is at the door."],
+        ["不定·物","something / anything / everything / nothing","Is there anything to eat?"],
+        ["不定·地方","somewhere / anywhere / everywhere / nowhere","I left my keys somewhere."]
+      ],
+      examples:[
+        {en:"<b>This</b> is my book, and <b>those</b> are yours.", zh:"这是我的书，那些是你的。", note:"this 指近，those 指远"},
+        {en:"<b>Someone</b> left a message for you.", zh:"有人给你留了言。"},
+        {en:"Is there <b>anything</b> to eat?", zh:"有什么吃的吗？", note:"疑问句用 any-"},
+        {en:"<b>Nothing</b> is impossible.", zh:"没有什么是不可能的。"}
+      ],
+      pitfall:[
+        "this / these 指近处，that / those 指远处",
+        "some- 系列用于肯定句，any- 系列用于否定和疑问句",
+        "不定代词一律当单数：Everyone <b>is</b> happy（不是 are）",
+        "nothing / nobody 本身已是否定，句子不能再加 not：I don't know nothing ✗"
+      ]
+    },
+    {
+      id:"s1-13", t:"形容词", en:"Adjectives",
+      core:"形容词修饰名词。三个重点：放哪、多个怎么排、-ing 和 -ed 的区别。",
+      head:["用法","规则","例子"],
+      rows:[
+        ["位置","多数放名词前，或 be 之后","a tall boy / The boy is tall."],
+        ["后置","修饰不定代词时放后面","something nice"],
+        ["多个形容词","按固定顺序排","a beautiful small old red French box"],
+        ["-ing / -ed","-ing 形容物，-ed 形容人","boring / bored"]
+      ],
+      examples:[
+        {en:"a <b>beautiful small old red French</b> box", zh:"一个漂亮、小巧、老旧、红色的法国盒子", note:"顺序：观点→大小→年龄→颜色→来源"},
+        {en:"The film was <b>boring</b>.", zh:"电影很无聊。", note:"形容物"},
+        {en:"I was <b>bored</b>.", zh:"我觉得无聊。", note:"形容人的感受"},
+        {en:"I have <b>something important</b> to tell you.", zh:"我有重要的事要告诉你。", note:"修饰不定代词要后置"}
+      ],
+      pitfall:[
+        "形容词修饰不定代词必须后置：something important（不是 important something）",
+        "-ing 形容使人产生感觉的事物，-ed 形容人自身的感觉：interesting 有趣的 / interested 感兴趣的",
+        "顺序口诀：观点—大小—年龄—形状—颜色—来源—材料"
+      ]
+    },
+    {
+      id:"s1-14", t:"副词", en:"Adverbs",
+      core:"副词修饰动词、形容词、其他副词或整句。难点在位置，尤其是频度副词。",
+      head:["类型","回答","例子"],
+      rows:[
+        ["方式","怎么","quickly, carefully, well"],
+        ["频度","多久一次","always, usually, often, sometimes, never"],
+        ["程度","多强烈","very, quite, too, almost"],
+        ["时间","何时","now, yesterday, soon"],
+        ["地点","何地","here, there, everywhere"]
+      ],
+      examples:[
+        {en:"He <b>quickly</b> finished his work.", zh:"他很快完成了工作。", note:"方式副词修饰动词"},
+        {en:"She <b>always</b> gets up early.", zh:"她总是早起。", note:"频度副词在实义动词前"},
+        {en:"He is <b>always</b> late.", zh:"他总是迟到。", note:"频度副词在 be 之后"},
+        {en:"It's <b>very</b> good.", zh:"非常好。", note:"程度副词修饰形容词"}
+      ],
+      pitfall:[
+        "频度副词位置：be 动词后、实义动词前。He always is late ✗ → He is always late ✓",
+        "方式副词多在动词后或句末：He speaks English well（不是 well speaks）",
+        "形容词变副词常加 -ly：quick → quickly；但 fast / fast、good / well 特殊"
+      ]
+    },
+    {
+      id:"s1-15", t:"数词", en:"Numbers",
+      core:"数词分基数（几个）和序数（第几）。说年龄、日期、价格、分数，全靠它。",
+      head:["类型","用法","例子"],
+      rows:[
+        ["基数词","表示数量","one, two, twenty-one"],
+        ["序数词","表示顺序，前加 the","first, second, third, twenty-first"],
+        ["日期","月 + 序数 + 年","May 1st / the first of May"],
+        ["分数","分子基数，分母序数","one third, two thirds"],
+        ["小数 / 百分数","小数点读 point","2.5 = two point five"]
+      ],
+      examples:[
+        {en:"I have <b>two</b> brothers.", zh:"我有两个兄弟。"},
+        {en:"She lives on the <b>third</b> floor.", zh:"她住在三楼。", note:"序数词前加 the"},
+        {en:"My birthday is on <b>May 1st</b>.", zh:"我生日是五月一日。"},
+        {en:"<b>Two thirds</b> of the students passed.", zh:"三分之二的学生通过了。"}
+      ],
+      pitfall:[
+        "序数词前面一般要加 the：the first time",
+        "分数：分子大于 1 时分母序数词加 s：two thirds（不是 two third）",
+        "几十几中间加连字符：twenty-one、thirty-five",
+        "不规则的序数词：first、second、third、fifth、ninth、twelfth"
+      ]
+    },
+    {
+      id:"s1-16", t:"构词法与词缀", en:"Word Formation & Affixes",
+      core:"看到生词先看词缀：后缀直接告诉你它是哪类词，前缀告诉你大概的意思。",
+      head:["词缀","作用","例子"],
+      rows:[
+        ["-tion / -sion","动词 → 名词","inform → information"],
+        ["-ness","形容词 → 名词","happy → happiness"],
+        ["-ment","动词 → 名词","develop → development"],
+        ["-ly","形容词 → 副词","quick → quickly"],
+        ["-able / -ible","动词 → 形容词（能……的）","enjoy → enjoyable"],
+        ["-ful / -less","名词 → 形容词（有 / 无）","care → careful / careless"],
+        ["-ize / -ise","名词、形容词 → 动词","modern → modernize"],
+        ["un- / in- / im-","表否定（前缀）","happy → unhappy, possible → impossible"]
+      ],
+      examples:[
+        {en:"<b>inform</b> → <b>information</b>", zh:"看到 -tion，知道它是名词。"},
+        {en:"<b>happy</b> → <b>happiness</b> → <b>happily</b>", zh:"-ness 变名词，-ly 变副词。"},
+        {en:"<b>possible</b> → <b>impossible</b>", zh:"im- 表否定。"}
+      ],
+      pitfall:[
+        "不是所有 -ly 结尾都是副词：friendly（友好的）、lovely（可爱的）是形容词",
+        "-ing / -ed 也是词缀，但属于分词形容词，前面已讲过",
+        "词缀只是线索，拿不准时仍要查英英字典确认"
+      ],
+      tip:"拆词三步：先看词根，再看后缀定词性，最后看前缀定方向。这样八成生词能猜个大概。"
+    }
+  ]
+},
+{
+  id:"s2", no:"02", title:"基础时态", en:"Core Tenses", color:"#85B7EB", ink:"#185FA5",
+  desc:"时态不是十二条要背的公式，而是两个问题：什么时候发生？动作处于什么状态？",
+  items:[
+    {
+      id:"s2-1", t:"一般现在时", en:"Present Simple",
+      core:"说的是习惯、事实、不受时间限制的事。重点不在「现在这一刻」，而在「一直都是这样」。",
+      formula:"主语 + 动词原形（第三人称单数 + s / es）\n否定：don't / doesn't + 原形\n疑问：Do / Does + 主语 + 原形？",
+      head:["人称","肯定","否定"],
+      rows:[
+        ["I / you / we / they","work","don't work"],
+        ["he / she / it","works","doesn't work"]
+      ],
+      examples:[
+        {en:"I <b>work</b> in Shanghai.", zh:"我在上海工作。", note:"长期状态，不是此刻"},
+        {en:"She <b>works</b> in a bank.", zh:"她在银行工作。", note:"第三人称单数加 s"},
+        {en:"The sun <b>rises</b> in the east.", zh:"太阳从东边升起。", note:"客观事实"},
+        {en:"The train <b>leaves</b> at seven.", zh:"火车七点开。", note:"时刻表用现在时表将来"}
+      ],
+      pitfall:[
+        "第三人称单数漏 s：She work ✗ → She works ✓",
+        "带了 does 就不能再加 s：Does she works ✗ → Does she work ✓"
+      ]
+    },
+    {
+      id:"s2-2", t:"现在进行时", en:"Present Continuous",
+      core:"说的是「此刻正在」或「现阶段正在」，一个临时状态——有起点，也会有终点。",
+      formula:"am / is / are + doing",
+      examples:[
+        {en:"I <b>am writing</b> an email.", zh:"我正在写邮件。", note:"此刻正在"},
+        {en:"She <b>is living</b> in Beijing this year.", zh:"她今年住在北京。", note:"临时状态，不是永久"},
+        {en:"They <b>are getting</b> married next month.", zh:"他们下个月结婚。", note:"已安排好的将来"}
+      ],
+      pitfall:[
+        "状态动词不用进行时：I am knowing ✗ → I know ✓（know / like / want / need / belong 表状态不表动作）",
+        "拼写要小心：run → running（双写末字母），make → making（去 e），lie → lying"
+      ]
+    },
+    {
+      id:"s2-3", t:"一般过去时", en:"Past Simple",
+      core:"说的是「过去某个时间发生并已结束」的事。它和现在没有直接关系，只是叙述。",
+      formula:"主语 + 动词过去式\n否定：didn't + 原形\n疑问：Did + 主语 + 原形？",
+      head:["情况","变化","例子"],
+      rows:[
+        ["规则动词","+ ed","work → worked"],
+        ["以 e 结尾","+ d","like → liked"],
+        ["辅音 + y","y 变 i + ed","study → studied"],
+        ["重读闭音节","双写末字母 + ed","stop → stopped"],
+        ["不规则","单独背","go → went, buy → bought"]
+      ],
+      examples:[
+        {en:"I <b>saw</b> him yesterday.", zh:"我昨天看见他了。"},
+        {en:"She <b>worked</b> there for ten years.", zh:"她在那儿工作了十年。", note:"现在已经不在那儿了"},
+        {en:"<b>Did</b> you <b>enjoy</b> the trip?", zh:"这趟旅行玩得开心吗？", note:"did 后动词回原形"}
+      ],
+      pitfall:[
+        "时间明确是过去，就不能用现在完成时：I have seen him yesterday ✗ → I saw him yesterday ✓",
+        "常见时间标志：yesterday、last week、in 2010、two days ago、when I was young"
+      ]
+    },
+    {
+      id:"s2-4", t:"将来时：will 与 be going to", en:"Future Forms",
+      core:"两个都表将来，区别只在一件事：这件事是不是提前打算好的。",
+      head:["形式","用在哪","例子"],
+      rows:[
+        ["will","临时决定、预测、承诺","I'll get it. / It will rain."],
+        ["be going to","已有计划、有明显迹象","I'm going to buy a car."],
+        ["现在进行时","已安排好的行程","I'm meeting her at three."],
+        ["一般现在时","时刻表、日程","The film starts at eight."]
+      ],
+      examples:[
+        {en:"The phone is ringing. <b>I'll</b> get it.", zh:"电话响了，我去接。", note:"当场决定，用 will"},
+        {en:"I<b>'m going to</b> visit my parents this weekend.", zh:"我这周末要去看父母。", note:"早想好了"},
+        {en:"Look at those clouds — it<b>'s going to</b> rain.", zh:"看那些云，要下雨了。", note:"有迹象"}
+      ],
+      pitfall:[
+        "will 后面永远跟原形：I will went ✗ → I will go ✓",
+        "条件句里主句用将来、从句用现在：If it <b>rains</b>, I <b>will</b> stay home.（不是 If it will rain）"
+      ]
+    },
+    {
+      id:"s2-5", t:"情态动词", en:"Modal Verbs",
+      core:"情态动词给动词加「态度」：能不能、该不该、有没有可能。它后面永远跟动词原形。",
+      head:["情态动词","表达","例子"],
+      rows:[
+        ["can / could","能力、许可、请求","I can swim. / Could you help me?"],
+        ["may / might","正式许可、可能性","May I come in? / It might rain."],
+        ["must","必须、很确定的推测","You must wear a seatbelt. / He must be tired."],
+        ["have to","客观必须，不得不","I have to work on Saturday."],
+        ["should / ought to","建议、应该","You should see a doctor."],
+        ["had better","最好（带警告）","You'd better not be late."]
+      ],
+      examples:[
+        {en:"You <b>mustn't</b> smoke here.", zh:"你绝不能在这儿抽烟。", note:"mustn't = 禁止"},
+        {en:"You <b>don't have to</b> come.", zh:"你不必来。", note:"don't have to = 没必要"}
+      ],
+      pitfall:[
+        "mustn't（禁止）和 don't have to（不必）意思相反，这是高频错误",
+        "情态动词不加 s、不加 to（have to / ought to 除外）：He cans swim ✗ → He can swim ✓",
+        "must 表推测时，否定是 can't（不可能），不是 mustn't：He must be tired 的否定是 He <b>can't</b> be tired"
+      ],
+      tip:"must 是说话人觉得必须，have to 是客观规定不得不。语气不一样。"
+    },
+    {
+      id:"s2-6", t:"比较级与最高级", en:"Comparatives & Superlatives",
+      core:"两者比较用比较级，三者以上用最高级。用哪种形式，看音节的多少。",
+      head:["情况","比较级","最高级","例子"],
+      rows:[
+        ["单音节","+ er","+ est","tall → taller → tallest"],
+        ["以 e 结尾","+ r","+ st","nice → nicer → nicest"],
+        ["辅音 + y","y 变 i + er","y 变 i + est","happy → happier → happiest"],
+        ["三音节以上","more + 原级","most + 原级","more beautiful / most beautiful"],
+        ["不规则","—","—","good → better → best"]
+      ],
+      examples:[
+        {en:"She is <b>taller than</b> me.", zh:"她比我高。"},
+        {en:"This is <b>the most interesting</b> book I've read.", zh:"这是我读过最有意思的书。"},
+        {en:"He is <b>as tall as</b> his father.", zh:"他和他爸一样高。"},
+        {en:"The <b>more</b> you practice, the <b>better</b> you get.", zh:"练得越多，进步越大。"}
+      ],
+      pitfall:[
+        "不能双重比较：more better ✗ → better ✓",
+        "最高级前要加 the：She is tallest ✗ → She is the tallest ✓"
+      ]
+    },
+    {
+      id:"s2-7", t:"介词：时间与地点", en:"Prepositions of Time & Place",
+      core:"介词最难讲道理，但 in / on / at 有一把好用的尺子：从大到小，从面到点。",
+      head:["介词","时间","地点"],
+      rows:[
+        ["in","月、年、季节、一天中的某段","城市、国家、封闭空间"],
+        ["on","具体某天、星期几、日期","平面、表面"],
+        ["at","具体时刻、某一点","具体地点、门牌号"]
+      ],
+      examples:[
+        {en:"I'll see you <b>on</b> Monday <b>at</b> seven.", zh:"周一七点见。"},
+        {en:"She lives <b>in</b> Beijing, <b>on</b> a small street, <b>at</b> number 12.", zh:"她住北京，一条小街上，12 号。", note:"从大到小，三个介词各就各位"},
+        {en:"<b>in</b> the morning / <b>on</b> Sunday morning / <b>at</b> night", zh:"固定搭配要单独记。"}
+      ],
+      pitfall:[
+        "星期几用 on 不用 in：in Monday ✗ → on Monday ✓",
+        "at night、in the morning、on Sunday morning——例外不少，遇到就记整块"
+      ]
+    },
+    {
+      id:"s2-8", t:"主谓一致", en:"Subject-Verb Agreement",
+      core:"谓语动词的单复数必须跟主语一致。规则不难，难在主语被修饰语挡住时还能不能找对核心。",
+      head:["情况","规则","例子"],
+      rows:[
+        ["主语带修饰语","看核心名词","The box of books <b>is</b> heavy."],
+        ["and 连接两个主语","用复数","Tom and Jerry <b>are</b> friends."],
+        ["either...or / neither...nor","就近原则","Neither he nor I <b>am</b> ready."],
+        ["集合名词","视为整体用单数","The team <b>is</b> winning."],
+        ["不定代词","each / every / everyone 用单数","Everyone <b>is</b> here."],
+        ["there be","就近原则","There <b>is</b> a pen and two books."]
+      ],
+      examples:[
+        {en:"The <b>box</b> of books <b>is</b> heavy.", zh:"那箱书很重。", note:"核心是 box，不是 books"},
+        {en:"Neither he nor I <b>am</b> ready.", zh:"他和我都没准备好。", note:"就近看 I"},
+        {en:"Everyone <b>is</b> here.", zh:"大家都到了。"}
+      ],
+      pitfall:[
+        "被 of 短语骗：The quality of the products <b>is</b> poor（不是 are）",
+        "each、every、everyone、somebody 一律当单数",
+        "钱、时间、距离视为整体：Ten years <b>is</b> a long time."
+      ]
+    },
+    {
+      id:"s2-9", t:"祈使句与感叹句", en:"Imperatives & Exclamations",
+      core:"两个极端句型：一个省掉主语直接让你做事，一个把情绪推到最前面。",
+      head:["句型","结构","例子"],
+      rows:[
+        ["祈使句肯定","动词原形开头","Close the door."],
+        ["祈使句否定","Don't + 原形","Don't be late."],
+        ["祈使句委婉","Please / Would you","Please sit down."],
+        ["Let's","Let's + 原形","Let's go."],
+        ["感叹句 What","What + (a/an) + 形容词 + 名词","What a beautiful day!"],
+        ["感叹句 How","How + 形容词 / 副词","How beautiful!"]
+      ],
+      examples:[
+        {en:"<b>Close</b> the door.", zh:"关上门。", note:"主语 you 被省略"},
+        {en:"<b>Don't</b> be late.", zh:"别迟到。", note:"否定祈使用 don't"},
+        {en:"<b>What a</b> beautiful day!", zh:"多好的一天！"},
+        {en:"<b>How</b> fast he runs!", zh:"他跑得真快！"}
+      ],
+      pitfall:[
+        "祈使句没有主语，但隐含的主语是 you，反义疑问用 will you",
+        "What 后面接名词，How 后面接形容词或副词：What beautiful ✗ → How beautiful ✓",
+        "Let's 包括听者，Let us 不包括，语气不同"
+      ]
+    },
+    {
+      id:"s2-10", t:"过去进行时", en:"Past Continuous",
+      core:"过去某个时刻正在进行的动作。它和一般过去时搭伙讲故事：一个当背景，一个当事件。",
+      formula:"was / were + doing\n否定：wasn't / weren't + doing\n疑问：Was / Were + 主语 + doing？",
+      examples:[
+        {en:"I <b>was watching</b> TV at eight last night.", zh:"昨晚八点我在看电视。", note:"过去某一时刻正在发生"},
+        {en:"While she <b>was cooking</b>, the phone <b>rang</b>.", zh:"她做饭时，电话响了。", note:"进行时当背景，一般过去时当事件"},
+        {en:"They <b>were talking</b> when I came in.", zh:"我进去时他们正在聊天。"},
+        {en:"<b>Was</b> it raining when you left?", zh:"你走的时候在下雨吗？"}
+      ],
+      pitfall:[
+        "和一般过去时配合：进行时是「当时正在发生的背景」，一般过去时是「打断它的事件」",
+        "while 后面常接进行时，when 后面常接一般过去时",
+        "状态动词不用进行时：I was knowing ✗ → I knew ✓"
+      ],
+      tip:"叙事一句话模板：While 过去进行时（背景），一般过去时（事件）。"
+    },
+    {
+      id:"s2-11", t:"介词搭配", en:"Dependent Prepositions",
+      core:"介词最难的部分不是 in / on / at，而是动词和形容词后面该跟哪个介词。这块主要靠记，但有规律可循。",
+      head:["类型","常见搭配","例子"],
+      rows:[
+        ["动词 + 介词","depend on, wait for, listen to","It depends on you."],
+        ["动词 + 介词","look for / after / into","look for 寻找，look after 照顾"],
+        ["形容词 + 介词","good at, interested in, afraid of","She's good at math."],
+        ["形容词 + 介词","proud of, tired of, similar to","I'm tired of waiting."],
+        ["动词 + 宾语 + 介词","remind sb of, thank sb for","Thank you for your help."],
+        ["to 作介词","look forward to, be used to, object to","后接 doing，不是原形"]
+      ],
+      examples:[
+        {en:"It depends <b>on</b> the weather.", zh:"这取决于天气。"},
+        {en:"I'm looking forward <b>to seeing</b> you.", zh:"我期待见到你。", note:"这里的 to 是介词，后面接 doing"},
+        {en:"She is good <b>at</b> math.", zh:"她数学很好。"},
+        {en:"Thank you <b>for</b> your help.", zh:"谢谢你的帮助。"}
+      ],
+      pitfall:[
+        "to 有两种身份：不定词符号（后接原形）和介词（后接 doing）。look forward to / be used to / object to 里的 to 是介词",
+        "介词后面接代词要用宾格：between you and <b>me</b>（不是 I）",
+        "同一个动词配不同介词，意思完全不同：look for 寻找 / look after 照顾 / look into 调查"
+      ],
+      tip:"判断 to 是哪种：能换成「为了」的是不定词，能换成「对于」的是介词。介词后面一律接 doing 或名词。"
+    },
+    {
+      id:"s2-12", t:"短语动词：代词的位置", en:"Phrasal Verbs & Pronoun Position",
+      core:"动词加小品词（如 turn on）时，代词必须插在中间；名词则可以放中间或后面。",
+      head:["宾语类型","规则","正确","错误"],
+      rows:[
+        ["代词 it / them","放中间","turn it on","turn on it ✗"],
+        ["名词","中间、后面都可","turn the TV on ＝ turn on the TV","—"],
+        ["代词 + 更多词","放中间","look it up","look up it ✗"],
+        ["动介词组（不可拆）","代词也不能插中间","look after it","look it after ✗"]
+      ],
+      examples:[
+        {en:"Please <b>turn it on</b>.", zh:"请把它打开。", note:"it 是代词，必须放中间"},
+        {en:"Please <b>turn on the light</b>. ＝ <b>turn the light on</b>.", zh:"名词可以放两边。"},
+        {en:"I'll <b>look it up</b> in the dictionary.", zh:"我查一下字典。", note:"look up 可拆，it 放中间"},
+        {en:"She <b>looks after</b> him.", zh:"她照顾他。", note:"look after 不可拆，不能说 look him after"}
+      ],
+      pitfall:[
+        "关键区分「动副词组」（可拆）和「动介词组」（不可拆）：turn on 可拆，look at 不可拆",
+        "代词一律放中间：turn it on，绝不是 turn on it",
+        "判断可不可拆：看小品词是副词还是介词。介词后面必须跟宾语，所以动介词组不可拆"
+      ],
+      tip:"口诀：代词夹中间，名词两边站，动介词组不拆散。"
+    }
+  ]
+},
+{
+  id:"s3", no:"03", title:"动词体系", en:"The Verb System", color:"#378ADD", ink:"#FFFFFF",
+  desc:"英语动词有四层：时态管何时，体管状态，语态管谁做，语气管真假。这一阶把后三层补齐。",
+  items:[
+    {
+      id:"s3-1", t:"现在完成时", en:"Present Perfect",
+      core:"它的视角不在过去，而在「过去的事对现在的影响」。这是它和一般过去时的分水岭。",
+      formula:"have / has + 过去分词",
+      head:["用法","说明","例子"],
+      rows:[
+        ["经历","曾经做过，不问何时","I have been to Japan."],
+        ["结果","动作完成了，结果留在现在","I have lost my keys."],
+        ["持续","从过去一直持续到现在","I have lived here for ten years."]
+      ],
+      examples:[
+        {en:"I <b>have lost</b> my keys.", zh:"我把钥匙丢了。", note:"重点是现在进不去门"},
+        {en:"I <b>lost</b> my keys yesterday.", zh:"我昨天把钥匙丢了。", note:"只叙述过去，与现在无关"},
+        {en:"<b>Have</b> you <b>ever seen</b> this film?", zh:"你看过这部电影吗？"},
+        {en:"I <b>have lived</b> here <b>for</b> ten years.", zh:"我在这儿住了十年。"}
+      ],
+      pitfall:[
+        "有明确的过去时间就不能用：I have seen him yesterday ✗ → I saw him yesterday ✓",
+        "since 接时间点，for 接时间段：since 2020 / for three years",
+        "瞬间动词不能配 for：I have bought this for a year ✗ → I have had this for a year ✓"
+      ],
+      tip:"问自己一句：这句话的重点是「过去发生了什么」，还是「现在怎么样了」？后者用现在完成时。"
+    },
+    {
+      id:"s3-2", t:"现在完成进行时", en:"Present Perfect Continuous",
+      core:"强调动作从过去一直持续到现在，而且大概率还在继续。比现在完成时更有画面感。",
+      formula:"have / has been + doing",
+      examples:[
+        {en:"I <b>have been waiting</b> for two hours.", zh:"我等了两个小时了。", note:"还在等"},
+        {en:"She <b>has been studying</b> English since 2019.", zh:"她从 2019 年就在学英语。"},
+        {en:"It <b>has been raining</b> all day.", zh:"下了一整天雨。"}
+      ],
+      pitfall:[
+        "对比：I have read the book（读完了）／ I have been reading the book（一直在读，可能没读完）",
+        "状态动词仍不适用：I have been knowing him ✗ → I have known him ✓"
+      ]
+    },
+    {
+      id:"s3-3", t:"过去完成时", en:"Past Perfect",
+      core:"它是「过去的过去」。讲过去的事时，要退到更早，就用它。",
+      formula:"had + 过去分词",
+      examples:[
+        {en:"When I arrived, the train <b>had</b> already <b>left</b>.", zh:"我到的时候，火车已经开走了。", note:"开走发生在到达之前"},
+        {en:"She told me she <b>had seen</b> the film.", zh:"她跟我说她看过那部电影。", note:"间接引语里时态后移"},
+        {en:"It was the best meal I <b>had ever had</b>.", zh:"那是我吃过最好的一顿。"}
+      ],
+      pitfall:[
+        "只有一个过去动作时不需要它：I had seen him yesterday ✗ → I saw him yesterday ✓",
+        "它必须有一个过去参照点，否则无从谈起——没有「后来的某事」，就没有「更早」"
+      ]
+    },
+    {
+      id:"s3-4", t:"被动语态", en:"Passive Voice",
+      core:"被动不是时态，是视角。它把「谁做的」藏起来，把「被怎样」推到前面。",
+      formula:"be（随时态变）+ 过去分词",
+      head:["时态","被动形式","例子"],
+      rows:[
+        ["一般现在","am / is / are + done","English is spoken here."],
+        ["一般过去","was / were + done","The bridge was built in 1990."],
+        ["现在完成","has / have been + done","The work has been finished."],
+        ["将来","will be + done","The results will be announced tomorrow."],
+        ["情态","modal + be + done","This must be done today."]
+      ],
+      examples:[
+        {en:"The window <b>was broken</b> by the storm.", zh:"窗户被暴风雨打碎了。"},
+        {en:"He <b>is said</b> to be rich.", zh:"据说他很有钱。"},
+        {en:"The letter <b>was written</b> in 1890.", zh:"这封信写于 1890 年。", note:"不必说 by whom"}
+      ],
+      pitfall:[
+        "只有及物动词能变被动：He was happened ✗ → It happened to him ✓",
+        "by 后面是动作发出者，不是必须出现的。说 The letter was written 就完整了"
+      ],
+      tip:"什么时候用被动：不知道谁做的、谁做的不重要、想强调承受者、或者要客观正式（学术、新闻、说明书）。"
+    },
+    {
+      id:"s3-5", t:"动名词与不定式", en:"Gerunds vs Infinitives",
+      core:"一个动词后面接 doing 还是 to do，不是自由选择，是那个动词的脾气，只能记搭配。",
+      head:["动词","接什么","例子"],
+      rows:[
+        ["enjoy / mind / avoid / finish","doing","I enjoy reading."],
+        ["want / hope / decide / plan","to do","I want to go."],
+        ["介词后面","一律 doing","I'm good at singing."],
+        ["stop / remember / forget / try","两者都可，意思不同","见下面例句"]
+      ],
+      examples:[
+        {en:"He stopped <b>smoking</b>.", zh:"他戒烟了。", note:"stop doing：停止正在做的事"},
+        {en:"He stopped <b>to smoke</b>.", zh:"他停下来抽了根烟。", note:"stop to do：停下来去做另一件事"},
+        {en:"I remember <b>locking</b> the door.", zh:"我记得锁了门。", note:"做过"},
+        {en:"I remember <b>to lock</b> the door.", zh:"我记得要锁门。", note:"还没做"},
+        {en:"I like <b>swimming</b>.", zh:"我喜欢游泳。", note:"这项运动本身"},
+        {en:"I like <b>to swim</b> in the morning.", zh:"我喜欢早上游泳。", note:"习惯性做法"}
+      ],
+      pitfall:[
+        "意思反转的四组必须单独记：stop / remember / forget / regret",
+        "介词后面不能接 to do：I'm interested in learn ✗ → I'm interested in learning ✓"
+      ],
+      tip:"搭配不必死记：不定词来自助动词，带「未发生、不确定」的意味；动名词带「已发生、事实」的意味。原理见本阶最后一节「非谓语进阶」。"
+    },
+    {
+      id:"s3-6", t:"used to 三兄弟", en:"Used To Family",
+      core:"三个长得像、意思完全不同的结构，也是中式英语的重灾区。",
+      head:["形式","意思","例子"],
+      rows:[
+        ["used to do","过去常常做（现在不做了）","I used to smoke."],
+        ["be used to doing","习惯于做某事","I'm used to getting up early."],
+        ["be used to do","被用来做某事","Wood is used to make paper."]
+      ],
+      examples:[
+        {en:"I <b>used to</b> live in Beijing.", zh:"我以前住北京。", note:"现在不住了"},
+        {en:"I'm <b>used to living</b> alone.", zh:"我习惯一个人住。", note:"to 是介词，后接 doing"},
+        {en:"This machine <b>is used to cut</b> metal.", zh:"这台机器用来切金属。", note:"被动 + 不定式表目的"}
+      ],
+      pitfall:[
+        "used to 只有过去式，没有现在式：I use to smoke ✗",
+        "否定和疑问要去掉 d：didn't use to / Did you use to...?"
+      ],
+      tip:"看 to 后面是什么：doing 就是「习惯」，动词原形前面有 be 就是「被用来」，光秃秃的 used to 加原形就是「过去常常」。"
+    },
+    {
+      id:"s3-7", t:"情态动词 + have done", en:"Modal Perfect",
+      core:"情态动词加完成式，说的是「对过去的推测」或「对过去的遗憾」。这是情态动词最难的用法。",
+      head:["结构","含义","例子"],
+      rows:[
+        ["must have done","对过去的肯定推测","He must have forgotten."],
+        ["can't / couldn't have done","对过去的否定推测","She can't have said that."],
+        ["may / might have done","过去可能","They may have left."],
+        ["should have done","本该做却没做","You should have told me."],
+        ["shouldn't have done","本不该做却做了","I shouldn't have said that."],
+        ["could have done","本来能够，但没做","I could have won."],
+        ["needn't have done","本不必做却做了","You needn't have waited."]
+      ],
+      examples:[
+        {en:"He <b>must have forgotten</b>.", zh:"他肯定是忘了。", note:"现在推断过去"},
+        {en:"You <b>should have told</b> me.", zh:"你本该告诉我的。", note:"责备，含有遗憾"},
+        {en:"I <b>could have won</b>.", zh:"我本来能赢的。", note:"没赢"}
+      ],
+      pitfall:[
+        "must have done 是推测，不是「必须做过」。后面永远用 have，不是 has",
+        "should have done 带责备，could have done 带遗憾，语气不同",
+        "needn't have done（白做了）和 didn't need to do（没做，也不必做）完全不同"
+      ],
+      tip:"把这组理解成「情态动词表态度，have done 把它指向过去」。态度不变，时间往后挪一格。"
+    },
+    {
+      id:"s3-8", t:"十二时态总览", en:"The 12 Tenses",
+      core:"把学过的时态放进一张表会发现：所谓十二时态，就是三个时间乘四种状态。不用背十二条。",
+      head:["状态","现在","过去","将来"],
+      rows:[
+        ["一般","do / does","did","will do"],
+        ["进行","am / is / are doing","was / were doing","will be doing"],
+        ["完成","have / has done","had done","will have done"],
+        ["完成进行","have been doing","had been doing","will have been doing"]
+      ],
+      examples:[
+        {en:"I <b>work</b> every day.", zh:"我每天工作。", note:"一般现在：习惯"},
+        {en:"I <b>am working</b> now.", zh:"我正在工作。", note:"现在进行：此刻"},
+        {en:"I <b>have worked</b> here for years.", zh:"我在这儿工作多年了。", note:"现在完成：持续"},
+        {en:"I <b>have been working</b> all morning.", zh:"我一上午都在工作。", note:"完成进行：强调过程"}
+      ],
+      pitfall:[
+        "十二时态不是十二个孤立公式，是「3 个时间 × 4 种状态」的坐标系",
+        "日常最常用的是六个：一般现在、一般过去、一般将来、现在进行、现在完成、过去完成",
+        "将来完成进行时几乎不用，认识就行，不必练"
+      ],
+      tip:"先说时间（现在/过去/将来），再说状态（一般/进行/完成/完成进行），两个坐标一交叉，时态就出来了。"
+    },
+    {
+      id:"s3-9", t:"使役：让人做某事", en:"Causative: Have / Get Something Done",
+      core:"不是自己做，而是让别人做。核心结构是 have / get + 宾语 + 过去分词。",
+      head:["结构","含义","例子"],
+      rows:[
+        ["have sth done","让人做某事（付费、安排）","I had my hair cut."],
+        ["get sth done","同上，更口语化","I got my car repaired."],
+        ["have sb do","让某人做","She had him clean the room."],
+        ["get sb to do","说服、让某人做","I got him to help me."]
+      ],
+      examples:[
+        {en:"I <b>had my hair cut</b> yesterday.", zh:"我昨天剪了头发。", note:"是理发师剪的"},
+        {en:"I <b>cut my hair</b> yesterday.", zh:"我昨天自己剪了头发。", note:"对比：自己动手"},
+        {en:"We <b>got the house painted</b> last month.", zh:"我们上个月让人刷了房子。"},
+        {en:"She <b>had him clean</b> the room.", zh:"她让他打扫了房间。", note:"have sb do 用原形"}
+      ],
+      pitfall:[
+        "have sth done 是「让人做」，不是「自己做」：I had my watch repaired（表被修）",
+        "分清两个结构：have sth done（东西被做）／ have sb do（让某人做，用原形）",
+        "可以和完成时叠用：I've had my hair cut（我已经剪了头发）"
+      ]
+    },
+    {
+      id:"s3-10", t:"非谓语进阶：完成式与被动式", en:"Advanced Verbals",
+      core:"读长句最常卡在这里：to have done、having been done。它们不是新东西，只是非谓语动词也带上了时间和语态。",
+      formula:"不定词：to do ／ to be done ／ to have done ／ to have been done\n动名词：doing ／ being done ／ having done ／ having been done\n分词：  doing ／ done ／ having done ／ having been done\n\n构造规律：时间用 have，语态用 be，两者都加就是 have been",
+      head:["形式","含义","例子"],
+      rows:[
+        ["to be done","不定词被动：将要被……","There is a lot to be done."],
+        ["to have done","不定词完成：先于主句发生","He seems to have left."],
+        ["to have been done","不定词完成被动","The work seems to have been finished."],
+        ["being done","动名词被动：正在被……","I hate being ignored."],
+        ["having done","动名词或分词完成：已经……","I regret having said that."],
+        ["having been done","完成被动：已被……","Having been warned, he left early."],
+        ["使役 + 原形","let / make / have + sb + do","She made him wait."],
+        ["感官 + 原形或 Ving","see / hear / watch + sb + do / doing","I saw him leave / leaving."]
+      ],
+      examples:[
+        {en:"He seems <b>to have left</b>.", zh:"他好像已经走了。", note:"不定词完成式，动作早于 seems"},
+        {en:"There is a lot of work <b>to be done</b>.", zh:"有很多工作要做。", note:"不定词被动，工作是被做的"},
+        {en:"I regret <b>having said</b> that.", zh:"我后悔说了那话。", note:"动名词完成式，说在前，后悔在后"},
+        {en:"<b>Having been warned</b>, he left early.", zh:"被警告之后，他早早离开了。", note:"分词完成被动"},
+        {en:"I saw him <b>cross</b> the street.", zh:"我看见他过了马路。", note:"原形：看到全过程"},
+        {en:"I saw him <b>crossing</b> the street.", zh:"我看见他在过马路。", note:"Ving：看到进行中的片段"}
+      ],
+      pitfall:[
+        "to have done 是「比主句更早」，不只是「已经」：He seems to have left ＝ 现在看起来，他已经走了",
+        "被动形式别漏 be：to be done ／ being done ／ having been done",
+        "别写 The work seems to have finished——工作不会自己完成，要用 to have been finished",
+        "感官动词接原形表全过程，接 Ving 表正在进行，意思有差别"
+      ],
+      tip:"这些形式的构成逻辑和谓语动词完全一样：have 管时间，be 管语态。看懂 to have been done 就等于看懂 have been done。"
+    }
+  ]
+},
+{
+  id:"s4", no:"04", title:"复合句", en:"Complex Sentences", color:"#185FA5", ink:"#FFFFFF",
+  desc:"从这里开始，句子可以套句子。三个从属从句（名词、定语、状语）是整座语法大楼的承重墙。",
+  items:[
+    {
+      id:"s4-1", t:"并列句", en:"Compound Sentences",
+      core:"两个独立的句子用对等连接词连起来，谁也不从属于谁。",
+      head:["连接词","关系","例子"],
+      rows:[
+        ["and","递进、并列","She sings and he plays guitar."],
+        ["but","转折","I called him, but he didn't answer."],
+        ["or","选择","Tea or coffee?"],
+        ["so","结果","It was late, so we went home."],
+        ["for","原因（书面）","He was nervous, for it was his first time."],
+        ["yet","然而","It's cheap, yet it works well."]
+      ],
+      examples:[
+        {en:"I was tired, <b>but</b> I kept working.", zh:"我累了，但还在继续。"},
+        {en:"It was late, <b>so</b> we went home.", zh:"太晚了，所以我们回家了。"}
+      ],
+      pitfall:[
+        "不能只用逗号连接两个完整句子（逗号粘连）：I was tired, I went to bed ✗ → I was tired, so I went to bed ✓",
+        "中文「虽然……但是」不能直译成 although...but，英文只能留一个"
+      ]
+    },
+    {
+      id:"s4-8", t:"标点：逗号、分号、冒号", en:"Commas, Semicolons & Colons",
+      core:"标点是句子的路标。三种最常搞混：逗号最弱，分号相当于一个并列连词，冒号引出说明。",
+      head:["标点","功能","例子"],
+      rows:[
+        ["逗号 ,","分隔成分、插入语","I like tea, coffee, and milk."],
+        ["分号 ;","连接两个完整句（作用像 and）","It was late; we went home."],
+        ["冒号 :","引出解释、列举、引语","He had one goal: to win."],
+        ["逗号不能连句","两完整句之间不能只用逗号","I was tired, I slept ✗ → I was tired; I slept ✓"]
+      ],
+      examples:[
+        {en:"It was late; <b>we went home</b>.", zh:"太晚了；我们回家了。", note:"分号连接两个完整句，作用像 and"},
+        {en:"He had one goal: <b>to win</b>.", zh:"他只有一个目标：赢。", note:"冒号后面解释 goal 是什么"},
+        {en:"I have three hobbies: <b>reading, hiking, and cooking</b>.", zh:"冒号引出列举。"}
+      ],
+      pitfall:[
+        "逗号不能连接两个完整句子（逗号粘连），要么用分号，要么加连词",
+        "分号前后都必须是完整句子，不能是一半",
+        "冒号后面可以接短语、从句或列举，但前面通常是一个完整句子"
+      ],
+      tip:"强度：逗号 ＜ 分号 ＜ 句号。拿不准两个句子该不该分开时，分号是最安全的折中。"
+    },
+    {
+      id:"s4-2", t:"名词从句", en:"Noun Clauses",
+      core:"把一个完整的句子降级成一个名词，去当主语、宾语、表语或同位语。",
+      formula:"that / whether / if / wh- + 主语 + 谓语（陈述语序）",
+      head:["引导词","作用","例子"],
+      rows:[
+        ["that","陈述内容，常可省略","I think (that) he's right."],
+        ["whether / if","是否","I don't know whether he'll come."],
+        ["what","……的东西","What he said surprised me."],
+        ["who / where / when / why / how","疑问内容","I don't know where he lives."]
+      ],
+      examples:[
+        {en:"<b>What he said</b> surprised me.", zh:"他说的话让我吃惊。", note:"主语从句"},
+        {en:"I don't know <b>where he lives</b>.", zh:"我不知道他住哪儿。", note:"宾语从句，陈述语序"},
+        {en:"The problem is <b>that we have no money</b>.", zh:"问题是我们没钱。", note:"表语从句"}
+      ],
+      pitfall:[
+        "从句里必须用陈述语序：I don't know where is he ✗ → where he is ✓",
+        "if 不能放句首引导主语从句：If he comes is uncertain ✗ → Whether he comes is uncertain ✓",
+        "主句是过去时，从句时态要往后移一格"
+      ]
+    },
+    {
+      id:"s4-3", t:"定语从句", en:"Relative Clauses",
+      core:"一个句子贴在名词后面修饰它。被修饰的名词叫先行词，连接它们的词叫关系词。",
+      head:["关系词","指代","例子"],
+      rows:[
+        ["who","人，作主语","the man who called"],
+        ["whom","人，作宾语（正式）","the man whom I met"],
+        ["which","物","the book which I bought"],
+        ["that","人或物（限定时可用）","the book that I bought"],
+        ["whose","所属关系","the boy whose father is a doctor"],
+        ["where / when","地点 / 时间","the city where I grew up"]
+      ],
+      examples:[
+        {en:"The man <b>who called</b> you is my uncle.", zh:"给你打电话的人是我叔叔。"},
+        {en:"This is the book <b>that I told you about</b>.", zh:"这就是我跟你说过的那本书。"},
+        {en:"My father, <b>who is a doctor</b>, lives in Shanghai.", zh:"我爸是医生，他住在上海。", note:"非限定，只是补充说明"}
+      ],
+      pitfall:[
+        "非限定性从句（带逗号）不能用 that：My father, that is a doctor ✗",
+        "关系词在从句里作宾语时可以省略：the book (that) I bought",
+        "介词提到关系词前时不能用 that：the city in which I live（不是 in that）"
+      ],
+      tip:"判断用哪个关系词：先看先行词是人还是物，再看它在从句里做什么成分。"
+    },
+    {
+      id:"s4-4", t:"状语从句", en:"Adverbial Clauses",
+      core:"一个句子降级成副词，说明主句的时间、原因、条件、让步、目的或结果。",
+      head:["类型","连接词","例子"],
+      rows:[
+        ["时间","when, while, before, after, until, as soon as","When he arrived, we started."],
+        ["原因","because, since, as","He stayed home because it rained."],
+        ["条件","if, unless, as long as","If you work hard, you'll succeed."],
+        ["让步","although, though, even though","Although it rained, we went out."],
+        ["目的","so that, in order that","I left early so that I could catch the train."],
+        ["结果","so...that, such...that","He was so tired that he fell asleep."]
+      ],
+      examples:[
+        {en:"<b>When he arrived</b>, we started dinner.", zh:"他到的时候，我们开始吃饭。"},
+        {en:"<b>Although it rained</b>, we went out.", zh:"虽然下雨，我们还是出门了。"}
+      ],
+      pitfall:[
+        "although 和 but 不能连用：Although it rained, but we went out ✗",
+        "because 和 so 不能连用：Because it rained, so we stayed ✗",
+        "so 后接形容词或副词，such 后接名词：so <b>tired</b> ／ such <b>a nice day</b>。别混：such tired ✗ → so tired ✓",
+        "主将从现：主句将来时，时间/条件从句用一般现在时——When he <b>comes</b>, I'll tell him"
+      ]
+    },
+    {
+      id:"s4-5", t:"条件句：零到第三", en:"Conditionals",
+      core:"四类条件句，实际只在回答一个问题：这个假设，离现实有多远？",
+      head:["类型","结构","含义","例子"],
+      rows:[
+        ["零条件","If + 现在, 现在","普遍真理","If you heat ice, it melts."],
+        ["第一","If + 现在, will","很可能发生","If it rains, I'll stay home."],
+        ["第二","If + 过去, would + 原形","与现在事实相反","If I were rich, I would travel."],
+        ["第三","If + had done, would have done","与过去事实相反","If I had studied, I would have passed."],
+        ["混合","If + had done, would + 原形","过去影响现在","If I had saved money, I would be rich now."]
+      ],
+      examples:[
+        {en:"If I <b>were</b> you, I <b>would</b> apologize.", zh:"我要是你，我会道歉。", note:"第二条件，与现在相反"},
+        {en:"If I <b>had known</b>, I <b>would have told</b> you.", zh:"我要是早知道，就告诉你了。", note:"第三条件，后悔"}
+      ],
+      pitfall:[
+        "第二条件句的 be 一律用 were：If I was you ✗ → If I were you ✓",
+        "条件从句里不用 will：If it will rain ✗ → If it rains ✓",
+        "第三条件句前后都要完成式，别只改一半：If I had known, I would tell you ✗"
+      ],
+      tip:"看时间：现在 → 第二；过去 → 第三；可能发生 → 第一。虚拟的本质是「时态往后退一格」，退得越远越不真实。"
+    },
+    {
+      id:"s4-6", t:"间接引语", en:"Reported Speech",
+      core:"转述别人的话，要做三件事：人称变、时态退一步、时间和地点词跟着挪。",
+      head:["直接引语","间接引语"],
+      rows:[
+        ["now","then"],
+        ["today","that day"],
+        ["tomorrow","the next day"],
+        ["yesterday","the day before"],
+        ["here","there"],
+        ["this / these","that / those"]
+      ],
+      examples:[
+        {en:"“I am tired.” → He said (that) he <b>was</b> tired.", zh:"时态后退一格"},
+        {en:"“I will call you.” → He said he <b>would</b> call me.", zh:"will 变 would"},
+        {en:"“Where do you live?” → She asked where I <b>lived</b>.", zh:"疑问句变陈述语序"},
+        {en:"“Close the door.” → He told me <b>to close</b> the door.", zh:"祈使句用 to do"}
+      ],
+      pitfall:[
+        "转述疑问句不能保留疑问语序：He asked where did I live ✗ → where I lived ✓",
+        "客观真理不退时态：He said the sun <b>rises</b> in the east."
+      ]
+    },
+    {
+      id:"s4-7", t:"反义疑问句", en:"Question Tags",
+      core:"陈述句后面挂一个小尾巴，用来向对方确认。规则只有一条：前肯后否，前否后肯。",
+      formula:"陈述句 + 逗号 + 助动词（与前句相反）+ 主语代词？",
+      head:["前句","尾巴","例子"],
+      rows:[
+        ["肯定（含 be）","否定","She is a doctor, isn't she?"],
+        ["否定（含 be）","肯定","She isn't a doctor, is she?"],
+        ["肯定（实义动词）","借 don't / doesn't / didn't","You like it, don't you?"],
+        ["否定（实义动词）","借 do / does / did","You don't like it, do you?"],
+        ["祈使句","will you / shall we","Let's go, shall we?"],
+        ["I am","aren't I","I am late, aren't I?"]
+      ],
+      examples:[
+        {en:"She is a doctor, <b>isn't she</b>?", zh:"她是医生，对吧？"},
+        {en:"You don't like it, <b>do you</b>?", zh:"你不喜欢，是吧？"},
+        {en:"Let's go, <b>shall we</b>?", zh:"我们走吧？"}
+      ],
+      pitfall:[
+        "尾巴的主语必须用代词：Tom is here, isn't Tom ✗ → isn't he ✓",
+        "前句有 never / hardly / few / little / nothing 时算否定：He never comes, <b>does he</b>?",
+        "I am 的尾巴是 aren't I，不是 amn't I"
+      ],
+      tip:"先看前句有没有助动词——有就照搬再取反，没有就借 do / does / did。语调：读降调是「我确信，你附和一下」；读升调是「我真的不确定，在问你」。"
+    }
+  ]
+},
+{
+  id:"s5", no:"05", title:"高级句型", en:"Advanced Structures", color:"#7F77DD", ink:"#FFFFFF",
+  desc:"这一阶的东西，是「能读懂长难句」和「写得像native」之间的分水岭。本质都是同一件事：把从句压扁。",
+  items:[
+    {
+      id:"s5-1", t:"分词构句", en:"Participle Clauses",
+      core:"用 doing 或 done 代替一个从句，让句子更紧凑。这是英语书面语和中文差别最大的地方之一。",
+      formula:"doing —— 主动、进行\ndone —— 被动、完成\nhaving done —— 先发生",
+      examples:[
+        {en:"<b>Walking</b> down the street, I met an old friend.", zh:"走在街上，我遇到一位老朋友。", note:"主动关系"},
+        {en:"<b>Written</b> in 1890, the letter is now in a museum.", zh:"这封信写于 1890 年，现藏于博物馆。", note:"被动关系"},
+        {en:"<b>Having finished</b> the work, she went home.", zh:"完成工作后，她回家了。", note:"先发生"}
+      ],
+      pitfall:[
+        "分词的主语必须和主句主语一致，否则叫悬垂分词：Walking down the street, the tree was beautiful ✗（走的是人不是树）",
+        "主动用 doing，被动用 done，判断标准只有一条：这个动作是谁做的"
+      ]
+    },
+    {
+      id:"s5-2", t:"从句简化：一条通则", en:"Reduction: The General Rule",
+      core:"名词、形容词、副词三类从句的简化，看起来花样很多，其实共用一条通则：省略主语和 be，只留补语。",
+      formula:"通则：省略主语 + be，保留补语\n\n没有 be 怎么办？\n  有助动词　→ 省主语，助动词改成不定词（can go → to go）\n  只有普通动词 → 先加 be 变 Ving，再省 be（he saw → he was seeing → seeing）",
+      head:["情况","怎么处理","例子"],
+      rows:[
+        ["有 be 动词","直接省主语和 be","which is chilled → chilled"],
+        ["有助动词","省主语，助动词改不定词","who should go → to go"],
+        ["只有普通动词","加 be 变 Ving，再省 be","because he saw → seeing"],
+        ["主语不能省","保留主语，只省 be 和连接词","The child sleeping..., her mother came"]
+      ],
+      examples:[
+        {en:"The man <b>who is standing</b> there → The man <b>standing</b> there.", zh:"有 be，直接省掉关系词和 be。"},
+        {en:"He studied hard <b>so that he could get</b> a scholarship. → He studied hard <b>to get</b> a scholarship.", zh:"有助动词 could，改成不定词。"},
+        {en:"<b>Because we have nothing to do</b> here, we might as well go home. → <b>Having nothing to do</b> here, we might as well go home.", zh:"没有 be，先把 have 变成 having。"}
+      ],
+      pitfall:[
+        "省主语的前提：主语与主句相同，或者是 one / people 这类空泛的词",
+        "省掉的是 be 动词，不是实义动词。没有 be 就必须先造一个 be，把动词变 Ving",
+        "连接词是否保留只看清楚性：because 通常省，although 必须留"
+      ],
+      tip:"主语加 be 是赘肉，剪掉；没有 be 就先造一个，再把动词变 -ing。剩下什么补语，就是什么词类。"
+    },
+    {
+      id:"s5-3", t:"形容词从句简化", en:"Reducing Relative Clauses",
+      core:"关系从句简化后剩下什么补语，就决定它长什么样：被动剩 Ven，进行剩 Ving，有助动词剩 to V。",
+      head:["原从句","简化后","剩下什么"],
+      rows:[
+        ["which is chilled to 6°C","chilled to 6°C","Ven，被动"],
+        ["which is coming to shore","coming to shore","Ving，进行"],
+        ["who breaks down every week","breaking down every week","无 be，改 Ving"],
+        ["who should go this time","to go this time","有助动词，改 to V"],
+        ["who is pretty and intelligent","pretty and intelligent","形容词补语"],
+        ["who is President of the U.S.","President of the U.S.","名词补语，即同位语"]
+      ],
+      examples:[
+        {en:"Beer <b>which is chilled</b> to 6°C → Beer <b>chilled</b> to 6°C.", zh:"啤酒冰到六度最可口。"},
+        {en:"The ship <b>which is coming</b> to shore → The ship <b>coming</b> to shore.", zh:"正在靠岸的那条船。"},
+        {en:"John is the one <b>who should go</b> → John is the one <b>to go</b>.", zh:"该走的是约翰。"},
+        {en:"John is not a man <b>to trust</b> ／ <b>to be trusted</b>.", zh:"主动被动都成立，要看还原后的原句。"},
+        {en:"Bill Clinton, <b>who is President</b> of the U.S. → Bill Clinton, <b>President</b> of the U.S.", zh:"传统语法叫「同位语」，本质就是名词补语。"}
+      ],
+      pitfall:[
+        "to V 后面带个介词，是因为被省略的关系词正是介词的宾语：the guy to deal <b>with</b>",
+        "主语不能省时用 for 引出来：a job <b>for</b> your brother <b>to do</b>",
+        "传统语法所谓的「同位语」，就是从名词补语简化来的，不必当成新概念背"
+      ],
+      tip:"先还原成完整的关系从句，再剪掉「关系词 + be」。剩下什么词类，简化后就是什么。"
+    },
+    {
+      id:"s5-4", t:"名词从句简化", en:"Reducing Noun Clauses",
+      core:"名词从句简化后必须变成名词类，所以只能剩动名词或不定词，不能剩分词。",
+      head:["原从句","简化后","为什么"],
+      rows:[
+        ["that he saw the lady","seeing the lady","动名词，作宾语"],
+        ["that one should wear black","to wear black","有 should，改不定词"],
+        ["whether he is insured or not","whether insured or not","保留连接词"],
+        ["that she had a fever","having a fever","完成概念用 having"]
+      ],
+      examples:[
+        {en:"John remembers <b>that he saw</b> the lady → John remembers <b>seeing</b> the lady.", zh:"约翰记得见过这位女士。"},
+        {en:"It is courtesy <b>that one should wear</b> black → It is courtesy <b>to wear</b> black.", zh:"穿黑衣是基本礼貌。"},
+        {en:"<b>Whether insured or not</b>, your house needs a fire alarm.", zh:"不论有没有保险，房子都该装火警铃。", note:"whether 要保留，否则意思不清"}
+      ],
+      pitfall:[
+        "名词从句简化只能剩动名词或不定词。分词是形容词类，当不了主语和宾语",
+        "去掉连接词会造成歧义时，连接词必须留（whether、if 常常保留）",
+        "主语不同不能省时，改成物主代词或名词所有格：his failure、our analysis"
+      ],
+      tip:"看它在句子里当什么：当主语宾语用动名词，表目的或带 should 用不定词。位置决定形式。"
+    },
+    {
+      id:"s5-5", t:"副词从句简化", en:"Reducing Adverbial Clauses",
+      core:"副词从句简化最容易出错，因为牵扯三件事：连接词该不该留、being 什么时候必须加、having done 什么时候用。",
+      head:["情况","规则","例子"],
+      rows:[
+        ["有 be","省主语和 be","While he was lying → Lying"],
+        ["无 be 无助动词","加 be 变 Ving","Because we have → Having"],
+        ["because / since","通常省略","省掉后句型本身暗示因果"],
+        ["although / as if","必须保留","否则逻辑关系丢失"],
+        ["before / after / since","兼作介词，后面要接名词","before being in school"],
+        ["讲先后顺序","用 having done","Having written the letter, he mailed it"],
+        ["主语不同","保留主语，只省 be","The child sleeping, her mother came"]
+      ],
+      examples:[
+        {en:"<b>While he was lying</b> on the couch, the boy fell asleep. → <b>Lying</b> on the couch, the boy fell asleep.", zh:"男孩躺在沙发上睡着了。"},
+        {en:"<b>Although we have nothing to do</b>, we can't leave. → <b>Although having nothing to do</b>, we can't leave.", zh:"虽然没事，还是不能走。", note:"although 必须留，否则逻辑反了"},
+        {en:"<b>As I am a student</b>, I can't afford it. → <b>Being a student</b>, I can't afford it.", zh:"我还是学生，负担不起。", note:"加 being 标明 a student 是补语"},
+        {en:"<b>After he wrote the letter</b>, he mailed it. → <b>Having written</b> the letter, he mailed it.", zh:"写完信后寄了出去。", note:"省掉 after 就必须用 having done 交代先后"},
+        {en:"<b>When the child was sleeping</b>, her mother came. → <b>The child sleeping</b>, her mother came.", zh:"孩子睡着时，妈妈来了。", note:"主语不同，保留主语"}
+      ],
+      pitfall:[
+        "悬垂修饰：分词的主语必须和主句一致。Walking down the street, the tree was beautiful ✗（走的是人不是树）",
+        "省了 after 就必须用 having done 交代先后，否则读者默认是 when（同时发生）",
+        "before / after / since 简化后变成介词，后面只能接名词，必要时加 being 作词类转换"
+      ],
+      tip:"连接词去留只看一件事：省掉之后读者会不会误解。会误解就留，不会就省。"
+    },
+    {
+      id:"s5-6", t:"倒装", en:"Inversion",
+      core:"打乱正常语序，为了强调或者符合固定句式。分语法倒装和修辞倒装两类。",
+      head:["类型","结构","例子"],
+      rows:[
+        ["否定词置首","否定词 + 助动词 + 主语","Never have I seen such a thing."],
+        ["only 置首","Only + 状语 + 助动词 + 主语","Only then did I understand."],
+        ["虚拟省略 if","Had / Were / Should + 主语","Had I known, I would have come."],
+        ["地点状语置首","地点 + 动词 + 主语","Here comes the bus."],
+        ["so / neither 附和","So + 助动词 + 主语","So do I. / Neither did she."]
+      ],
+      examples:[
+        {en:"<b>Never have I</b> seen such a beautiful sunset.", zh:"我从没见过这么美的日落。"},
+        {en:"<b>Only when</b> you lose it <b>do you</b> realize its value.", zh:"只有失去了才懂得珍惜。"},
+        {en:"<b>Had I known</b> the truth, I would have acted differently.", zh:"我要是知道真相，就会另作打算。"}
+      ],
+      pitfall:[
+        "倒装后助动词必须出现，实义动词回原形：Never I saw ✗ → Never have I seen ✓",
+        "Here comes the bus 不倒装是因为主语是名词；Here you are 主语是代词时不倒装"
+      ]
+    },
+    {
+      id:"s5-7", t:"强调句", en:"Cleft Sentences",
+      core:"英语没有「是……的」这种格式，它靠把一个句子劈成两半来突出重点。",
+      head:["类型","结构","强调什么"],
+      rows:[
+        ["It 强调句","It is / was + 被强调部分 + that / who","主语、宾语、状语"],
+        ["What 分裂句","What ... is / was ...","宾语、动作"],
+        ["do 强调","do / does / did + 动词原形","谓语动词"]
+      ],
+      examples:[
+        {en:"<b>It was</b> Tom <b>who</b> broke the window.", zh:"是汤姆打碎了窗户。"},
+        {en:"<b>It was</b> yesterday <b>that</b> I met her.", zh:"我是昨天遇到她的。"},
+        {en:"<b>What I need is</b> a holiday.", zh:"我需要的是休假。"},
+        {en:"I <b>do</b> like it.", zh:"我确实喜欢。"}
+      ],
+      pitfall:[
+        "检验方法：去掉 It is...that 后，剩下部分必须还能组成完整句子",
+        "强调人可以用 who 或 that，强调物只能用 that，不能用 which"
+      ]
+    },
+    {
+      id:"s5-8", t:"虚拟语气", en:"Subjunctive",
+      core:"说的不是事实，而是愿望、假设、建议、要求。英语用特殊的动词形式标记「这不是真的」。",
+      head:["场景","结构","例子"],
+      rows:[
+        ["wish + 现在相反","wish + 过去式","I wish I were taller."],
+        ["wish + 过去相反","wish + had done","I wish I had studied harder."],
+        ["wish + 将来","wish + would","I wish it would stop raining."],
+        ["建议、要求","suggest / demand / insist + (should) do","He suggested that she (should) leave."],
+        ["It's time","It's time + 过去式","It's time we left."],
+        ["would rather","would rather + 过去式","I'd rather you didn't go."]
+      ],
+      examples:[
+        {en:"I wish I <b>were</b> ten years younger.", zh:"真希望我年轻十岁。"},
+        {en:"<b>If only</b> I <b>had listened</b> to you.", zh:"要是我当时听你的就好了。"},
+        {en:"He insisted that the meeting <b>be</b> postponed.", zh:"他坚持会议延期。", note:"正式文体用动词原形"}
+      ],
+      pitfall:[
+        "wish 后面不能用现在时：I wish I am rich ✗ → I wish I were rich ✓",
+        "suggest 表「建议」才用虚拟；表「暗示」用陈述：His smile suggested that he was happy."
+      ],
+      tip:"虚拟语气的统一逻辑：时态往后退一格。现在的事情用过去式，过去的事情用过去完成式。"
+    },
+    {
+      id:"s5-9", t:"省略与替代", en:"Ellipsis & Substitution",
+      core:"英语非常怕重复。能省就省，不能省就换个词代替。这是让句子不啰嗦的关键。",
+      head:["手段","用法","例子"],
+      rows:[
+        ["助动词替代","用 do / does / did 代替前面的动词短语","She sings better than he does."],
+        ["so / neither","附和对方的说法","So do I. / Neither have I."],
+        ["one / ones","代替前面出现过的名词","I like the red one."],
+        ["to 代替不定式","保留 to，省略后面","I didn't want to go, but I had to."],
+        ["并列省略","省掉重复的成分","She went to Paris and stayed there."]
+      ],
+      examples:[
+        {en:"She sings better than he <b>does</b>.", zh:"她唱得比他好。"},
+        {en:"I'd love to, but I <b>can't</b>.", zh:"我很想去，但去不了。"},
+        {en:"I like the red <b>one</b>.", zh:"我喜欢红色的那个。"}
+      ],
+      pitfall:[
+        "省掉的必须是重复部分，不能是主干，否则句子站不住",
+        "so do I 和 so I do 意思不同：前者「我也是」，后者「确实如此」"
+      ]
+    }
+  ]
+},
+{
+  id:"s6", no:"06", title:"语篇语法", en:"Discourse Grammar", color:"#534AB7", ink:"#FFFFFF",
+  desc:"句子都对，整段还是读着别扭——问题不在语法，在语篇。这一阶教的是「怎么把句子连成话」。",
+  items:[
+    {
+      id:"s6-1", t:"衔接手段", en:"Cohesion",
+      core:"句子对了不等于段落通。英语靠五种手段把句子缝起来：指代、替代、省略、连接词、词汇复现。",
+      head:["手段","怎么做","例子"],
+      rows:[
+        ["指代 reference","用代词指回前文","Tom came late. He said the bus broke down."],
+        ["替代 substitution","用 one / do / so 代替","I need a pen. Do you have one?"],
+        ["省略 ellipsis","省掉重复部分","She can swim and so can he."],
+        ["连接词 conjunction","标明逻辑关系","However / Therefore / In addition"],
+        ["词汇衔接 lexical","重复或替换关键词","climate change → global warming"]
+      ],
+      examples:[
+        {en:"The company reported losses. <b>This</b> surprised investors.", zh:"公司报出亏损，这让投资者意外。", note:"this 指代整句话"},
+        {en:"Some students prefer lectures. <b>Others</b> learn better alone.", zh:"有些学生喜欢听课，另一些更适合自学。"}
+      ],
+      pitfall:[
+        "代词指代必须唯一：Tom told Jim that he was wrong（he 到底是谁？）",
+        "连接词不是越多越好。每句都加 however，等于没有逻辑"
+      ]
+    },
+    {
+      id:"s6-2", t:"信息结构", en:"Information Structure",
+      core:"英语的语序由新旧信息决定：旧信息放前面，新信息放后面。句尾是天然的重音位置。",
+      head:["工具","作用","例子"],
+      rows:[
+        ["正常语序","已知 → 新知","I saw a dog. The dog was huge."],
+        ["there be","引入一个新事物","There is a problem with the plan."],
+        ["被动","已知放前，未知放后","The window was broken by a boy."],
+        ["分裂句","把重点推到句尾","It was the price that surprised me."],
+        ["倒装","给新信息留位置","On the table sat a strange box."]
+      ],
+      examples:[
+        {en:"<b>A boy</b> broke the window.", zh:"是个男孩打碎了窗户。", note:"回答「谁干的」"},
+        {en:"<b>The window</b> was broken by a boy.", zh:"窗户是被一个男孩打碎的。", note:"回答「窗户怎么了」"}
+      ],
+      pitfall:[
+        "最重要的信息放句尾，别埋在句子中间",
+        "中文习惯先因后果，英语常常反过来：结论在前，理由在后"
+      ]
+    },
+    {
+      id:"s6-3", t:"语域与正式度", en:"Register & Formality",
+      core:"同样正确的句子，用在错误场合就是错的。正式度是一条连续光谱，不是对错问题。",
+      head:["维度","非正式","正式"],
+      rows:[
+        ["词汇","get, stuff, a lot of","obtain, material, numerous"],
+        ["动词","短语动词 find out","单个动词 determine"],
+        ["句长","短句、并列","长句、从句嵌套"],
+        ["主语","I think, you know","It is argued that"],
+        ["缩写","don't, it's","do not, it is"],
+        ["被动","少用","多用（学术、公文）"]
+      ],
+      examples:[
+        {en:"I <b>found out</b> he'd <b>messed up</b>.", zh:"口语：我发现他搞砸了。"},
+        {en:"It <b>was determined</b> that an <b>error had been made</b>.", zh:"书面：经认定，存在一处错误。"}
+      ],
+      pitfall:[
+        "学术写作里不要出现 don't / a lot of / get / stuff",
+        "邮件开头写 Dear Sir 后面就不能接 Hi，混用会显得不专业"
+      ]
+    },
+    {
+      id:"s6-4", t:"模糊限制", en:"Hedging",
+      core:"学术写作的核心技巧——把话说得留有余地。这不是不自信，是准确。",
+      head:["手段","形式","例子"],
+      rows:[
+        ["情态动词","may, might, could","This may indicate a trend."],
+        ["副词","possibly, generally, largely","The results largely support this."],
+        ["动词","suggest, appear, seem, tend to","The data suggest a link."],
+        ["限定语","in most cases, to some extent","In most cases, this holds."]
+      ],
+      examples:[
+        {en:"This <b>proves</b> that X causes Y.", zh:"太绝对，学术写作里站不住。"},
+        {en:"This <b>suggests</b> that X <b>may contribute to</b> Y.", zh:"留有余地，专业。"}
+      ],
+      pitfall:[
+        "事实陈述不需要 hedge，只有观点和推论才需要",
+        "hedge 太多会显得没有立场，一段里一两处足够"
+      ]
+    },
+    {
+      id:"s6-5", t:"名词化", en:"Nominalization",
+      core:"把动词或形容词变成名词。这是学术英语最显著的特征，也是初学者读不懂长句的主因。",
+      head:["动词句","名词化后"],
+      rows:[
+        ["They decided to expand.","The decision to expand"],
+        ["He failed completely.","His complete failure"],
+        ["Prices increased rapidly.","The rapid increase in prices"],
+        ["We analyzed the data.","Our analysis of the data"]
+      ],
+      examples:[
+        {en:"The company <b>expanded</b> quickly, and this <b>surprised</b> everyone.", zh:"动词句，口语化。"},
+        {en:"The <b>rapid expansion</b> of the company <b>caused surprise</b> among everyone.", zh:"名词化，正式。"}
+      ],
+      pitfall:[
+        "名词化更正式，也更晦涩。一段里堆太多会变成「名词串」，反而读不懂",
+        "中文母语者常反过来：该用动词的地方硬堆名词"
+      ]
+    }
+  ]
+},
+{
+  id:"s7", no:"07", title:"流利运用", en:"Fluency", color:"#3C3489", ink:"#FFFFFF",
+  desc:"最后一阶不教新知识，只把前面六阶的东西放进真实场景里跑一遍。",
+  items:[
+    {
+      id:"s7-1", t:"时态实时切换", en:"Switching Tenses",
+      core:"真实对话里，时态不按课本顺序出现，而是在一句话里来回切。",
+      formula:"叙事打底：一般过去时\n背景铺垫：过去进行时\n更早发生：过去完成时\n切回当下：一般现在时 / 现在完成时",
+      examples:[
+        {en:"I <b>was walking</b> home when I <b>realized</b> I <b>had left</b> my keys at work.", zh:"走回家时我突然发现钥匙落公司了。", note:"过去进行 + 一般过去 + 过去完成，三层时间叠在一句里"},
+        {en:"I <b>have been working</b> here since 2020, and I <b>love</b> it.", zh:"我从 2020 年就在这儿工作，我很喜欢。", note:"完成进行 + 一般现在"}
+      ],
+      pitfall:[
+        "三层时间叠加时先定参照点，再往前推：现在 → 过去 → 过去的过去",
+        "讲故事用一般过去时打底，背景铺垫用过去进行时"
+      ]
+    },
+    {
+      id:"s7-2", t:"口语缩减形式", en:"Reduced Forms",
+      core:"真实语速下很多词被压缩。听不懂往往不是词汇量问题，是没认出这些形式。",
+      head:["书面","口语","例子"],
+      rows:[
+        ["going to","gonna","I'm gonna call you."],
+        ["want to","wanna","Do you wanna go?"],
+        ["kind of / sort of","kinda / sorta","It's kinda weird."],
+        ["let me","lemme","Lemme check."],
+        ["because","'cause / cuz","'Cause I'm tired."],
+        ["don't know","dunno","I dunno."],
+        ["what are you","whaddaya","Whaddaya doing?"]
+      ],
+      examples:[
+        {en:"I'm gonna <b>hafta</b> go.", zh:"我得走了。", note:"gonna + have to 连着缩"}
+      ],
+      pitfall:[
+        "这些形式只用于口语和非正式写作，考试作文里不要出现",
+        "听力里遇到要能立刻还原成完整形式，否则整句都断了"
+      ]
+    },
+    {
+      id:"s7-3", t:"自我修正", en:"Self-Repair",
+      core:"卡住时怎么不露痕迹地重来，本身就是流利度的一部分。母语者也在不停修正。",
+      head:["场景","说法"],
+      rows:[
+        ["说错了要改","Sorry, I mean... / Actually, what I meant was..."],
+        ["想不起词","What's the word... / It's on the tip of my tongue."],
+        ["需要拖延时间","Well... / Let me think... / That's a good question."],
+        ["换个说法","In other words... / What I'm trying to say is..."],
+        ["确认对方听懂","Does that make sense? / You know what I mean?"]
+      ],
+      examples:[
+        {en:"I <b>goed</b> — sorry, I <b>went</b> to the store.", zh:"我去了——抱歉，是 went。", note:"改口时直接重说，不必解释"},
+        {en:"It's a... <b>what's the word</b>... a metaphor.", zh:"这是个……那个词怎么说……隐喻。", note:"想不起词时的填充语"},
+        {en:"<b>Actually, what I meant was</b> we should wait.", zh:"其实我的意思是，我们应该等。", note:"换一种说法重来"},
+        {en:"<b>Let me think</b> for a second.", zh:"让我想一下。", note:"争取时间"}
+      ],
+      pitfall:[
+        "停顿比错误更影响流利度，宁可说错也别长时间沉默",
+        "别反复说 um，用 well / actually / I mean 这类词填补，听感好得多"
+      ]
+    },
+    {
+      id:"s7-4", t:"错误模式诊断", en:"Error Patterns",
+      core:"中式英语不是随机出错，是固定的几个模式。找到自己的模式，比刷题有用得多。",
+      head:["高频错误","原因","正确说法"],
+      rows:[
+        ["I very like it.","very 不能直接修饰动词","I really like it."],
+        ["I am agree.","中文「我同意」里没有 be","I agree."],
+        ["He go to school.","漏第三人称单数","He goes to school."],
+        ["I have seen him yesterday.","现在完成时配了明确过去时间","I saw him yesterday."],
+        ["Although..., but...","中文连词成对使用","Although..., ..."],
+        ["Open the light.","「开灯」直译","Turn on the light."],
+        ["I very interested in it.","漏 be 动词","I'm very interested in it."],
+        ["There have many people.","have 与 there be 混用","There are many people."],
+        ["How to say this in English?","疑问句缺主语和助动词","How do you say this in English?"],
+        ["I will go to there.","there 是副词，不加 to","I will go there."]
+      ],
+      examples:[
+        {en:"I <b>very like</b> it. → I <b>really like</b> it.", zh:"very 不能直接修饰动词，要换成 really。"},
+        {en:"I <b>am agree</b>. → I <b>agree</b>.", zh:"agree 本身就是动词，不需要 be。"},
+        {en:"<b>There have</b> many people. → <b>There are</b> many people.", zh:"表示存在用 there be，不用 have。"},
+        {en:"<b>How to say</b> this? → <b>How do you say</b> this?", zh:"疑问句必须有主语和助动词。"}
+      ],
+      pitfall:[
+        "这些错误的共同点：把中文的语法结构直接套到英语上",
+        "自查方法：写完一句先找动词，再看动词前后是否符合五种基本句型"
+      ],
+      tip:"每犯一次错，记下它属于哪一类。三周之后你会发现，自己反复栽的坑其实只有三四个。"
+    }
+  ]
+}
+];
+</script>
+<script>
+const body = document.getElementById('body');
+const nav = document.getElementById('nav');
+const KEY = 'gram7.done';
+let done = new Set(JSON.parse(localStorage.getItem(KEY) || '[]'));
+
+function esc(s){ return s; }
+
+function table(rows, head){
+  const h = head ? '<thead><tr>' + head.map(x => '<th>' + x + '</th>').join('') + '</tr></thead>' : '';
+  const b = rows.map(r => '<tr>' + r.map(c => '<td>' + c + '</td>').join('') + '</tr>').join('');
+  return '<table>' + h + '<tbody>' + b + '</tbody></table>';
+}
+
+function exs(list){
+  return '<div class="ex">' + list.map(e =>
+    '<div class="ex-r">' +
+      '<div class="ex-e">' + e.en + '</div>' +
+      (e.zh ? '<div class="ex-z">' + e.zh + '</div>' : '') +
+      (e.note ? '<div class="ex-n">' + e.note + '</div>' : '') +
+    '</div>'
+  ).join('') + '</div>';
+}
+
+function pits(list){
+  return '<ul class="pit">' + list.map(p => '<li>' + p + '</li>').join('') + '</ul>';
+}
+
+function card(it, stage, i){
+  const isDone = done.has(it.id);
+  return '<article class="card' + (isDone ? ' done' : '') + '" id="' + it.id + '" data-k="' +
+    (it.t + it.en + it.core).toLowerCase() + '">' +
+    '<div class="ch">' +
+      '<span class="ix">' + String(i + 1).padStart(2, '0') + '</span>' +
+      '<h3>' + it.t + '<em>' + it.en + '</em></h3>' +
+      '<label class="chk"><input type="checkbox" data-id="' + it.id + '"' + (isDone ? ' checked' : '') + '><span>已掌握</span></label>' +
+    '</div>' +
+    '<p class="core">' + it.core + '</p>' +
+    (it.formula ? '<div class="formula">' + it.formula + '</div>' : '') +
+    (it.rows ? table(it.rows, it.head) : '') +
+    (it.examples ? exs(it.examples) : '') +
+    (it.pitfall ? pits(it.pitfall) : '') +
+    (it.tip ? '<div class="tip"><b>记法</b>' + it.tip + '</div>' : '') +
+  '</article>';
+}
+
+function render(){
+  body.innerHTML = DATA.map(stage =>
+    '<section class="stage" id="' + stage.id + '">' +
+      '<div class="sh">' +
+        '<span class="sno" style="background:' + stage.color + ';color:' + stage.ink + '">' + stage.no + '</span>' +
+        '<div><h2>' + stage.title + '<em>' + stage.en + '</em></h2><p>' + stage.desc + '</p></div>' +
+      '</div>' +
+      stage.items.map((it, i) => card(it, stage, i)).join('') +
+    '</section>'
+  ).join('');
+
+  nav.innerHTML = DATA.map(stage =>
+    '<div class="ns">' +
+      '<a href="#' + stage.id + '"><i style="background:' + stage.color + '"></i>' + stage.title + '<span>' + stage.items.length + '</span></a>' +
+      stage.items.map(it => '<a class="ni" href="#' + it.id + '" data-for="' + it.id + '">' + it.t + '</a>').join('') +
+    '</div>'
+  ).join('');
+
+  bind();
+  updateProgress();
+}
+
+function bind(){
+  document.querySelectorAll('.chk input').forEach(cb => {
+    cb.addEventListener('change', e => {
+      const id = e.target.dataset.id;
+      const cardEl = e.target.closest('.card');
+      if (e.target.checked) { done.add(id); cardEl.classList.add('done'); }
+      else { done.delete(id); cardEl.classList.remove('done'); }
+      localStorage.setItem(KEY, JSON.stringify([...done]));
+      updateProgress();
+      document.querySelectorAll('.ni[data-for="' + id + '"]').forEach(a => a.classList.toggle('done', e.target.checked));
+    });
+  });
+
+  document.querySelectorAll('.ni').forEach(a => {
+    if (done.has(a.dataset.for)) a.classList.add('done');
+  });
+
+  document.querySelectorAll('#nav a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('side').classList.remove('open'));
+  });
+}
+
+function updateProgress(){
+  const total = DATA.reduce((n, s) => n + s.items.length, 0);
+  const n = [...done].filter(id => document.getElementById(id)).length;
+  document.getElementById('pt').textContent = n + ' / ' + total;
+  document.getElementById('pf').style.width = (n / total * 100) + '%';
+}
+
+render();
+
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.ni').forEach(a => a.classList.remove('on'));
+      const a = document.querySelector('.ni[data-for="' + e.target.id + '"]');
+      if (a) a.classList.add('on');
+    }
+  });
+}, { rootMargin: '-10% 0px -80% 0px' });
+document.querySelectorAll('.card').forEach(c => obs.observe(c));
+
+function clearMarks(c){
+  c.querySelectorAll('mark').forEach(m => {
+    m.parentNode.replaceChild(document.createTextNode(m.textContent), m);
+  });
+  c.normalize();
+}
+
+function markText(c, q){
+  const nodes = [];
+  const w = document.createTreeWalker(c, NodeFilter.SHOW_TEXT);
+  let n;
+  while ((n = w.nextNode())) nodes.push(n);
+  nodes.forEach(node => {
+    const text = node.textContent;
+    const lower = text.toLowerCase();
+    if (!lower.includes(q)) return;
+    const frag = document.createDocumentFragment();
+    let last = 0, i = lower.indexOf(q);
+    while (i !== -1) {
+      if (i > last) frag.appendChild(document.createTextNode(text.slice(last, i)));
+      const m = document.createElement('mark');
+      m.textContent = text.slice(i, i + q.length);
+      frag.appendChild(m);
+      last = i + q.length;
+      i = lower.indexOf(q, last);
+    }
+    if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+    node.parentNode.replaceChild(frag, node);
+  });
+}
+
+document.getElementById('q').addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.stage').forEach(sec => {
+    let hit = 0;
+    sec.querySelectorAll('.card').forEach(c => {
+      clearMarks(c);
+      const ok = !q || c.dataset.k.includes(q) || c.textContent.toLowerCase().includes(q);
+      c.classList.toggle('hide', !ok);
+      if (ok) {
+        if (q) markText(c, q);
+        hit++;
+      }
+    });
+    sec.classList.toggle('hide', hit === 0);
+  });
+});
+
+const themeBtn = document.getElementById('theme');
+const savedTheme = localStorage.getItem('gram7.theme');
+if (savedTheme) document.documentElement.dataset.t = savedTheme;
+themeBtn.addEventListener('click', () => {
+  const next = document.documentElement.dataset.t === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.t = next;
+  localStorage.setItem('gram7.theme', next);
+});
+
+document.getElementById('menu').addEventListener('click', () => {
+  document.getElementById('side').classList.toggle('open');
+});
+
+document.getElementById('expBtn').addEventListener('click', () => {
+  const json = localStorage.getItem(KEY) || '[]';
+  prompt('复制这段进度 JSON，妥善保存：', json);
+});
+
+document.getElementById('impBtn').addEventListener('click', () => {
+  const txt = prompt('粘贴之前导出的进度 JSON：');
+  if (txt === null) return;
+  try {
+    const arr = JSON.parse(txt.trim());
+    if (!Array.isArray(arr)) throw new Error('not array');
+    localStorage.setItem(KEY, JSON.stringify(arr));
+    location.reload();
+  } catch (err) {
+    alert('格式不对，请粘贴完整导出的 JSON 字符串');
+  }
+});
+</script>
+<script>
+const TRAIN = [
+  {
+    level:"热身",
+    en:[["The students","subj"],["finished","verb"],["their homework","obj"],["before dinner","adv"]],
+    zh:"学生们在晚饭前完成了作业。",
+    steps:[
+      {idx:[1], title:"找谓语", note:"finished 是这句话的函数名。整句就一个动词，最好找。"},
+      {idx:[0], title:"找主语", note:"The students 是动作的发出者，第一个参数。"},
+      {idx:[2], title:"找宾语", note:"their homework 是动作的承受者，第二个参数。"},
+      {idx:[3], title:"找修饰语", note:"before dinner 说明时间，是附加参数，不影响主干。"}
+    ],
+    call:"finished(The_students, their_homework, before_dinner)"
+  },
+  {
+    level:"热身",
+    en:[["She","subj"],["has been working","verb"],["at this company","adv"],["since 2019","adv"]],
+    zh:"她从 2019 年起就在这家公司工作。",
+    steps:[
+      {idx:[1], title:"找谓语", note:"has been working 是现在完成进行时。别被三个词吓到，它整体就是一个谓语。"},
+      {idx:[0], title:"找主语", note:"She，动作发出者。"},
+      {idx:[2], title:"找地点状语", note:"at this company 说明在哪儿。"},
+      {idx:[3], title:"找时间状语", note:"since 2019 说明起点。这句没有宾语，因为 work 是不及物动词。"}
+    ],
+    call:"has_been_working(She, at_this_company, since_2019)"
+  },
+  {
+    level:"从句入门",
+    en:[["The book","subj"],["that I borrowed from the library","clause"],["was due","verb"],["last week","adv"]],
+    zh:"我从图书馆借的那本书上周到期了。",
+    steps:[
+      {idx:[2], title:"找谓语", note:"was due 才是主句谓语。注意 borrowed 是定语从句里的动词，不是主句的——这是长句最常见的陷阱。"},
+      {idx:[0], title:"找主语", note:"The book 是主语核心。"},
+      {idx:[1], title:"处理定语从句", note:"that I borrowed from the library 整个插在主语后面修饰它。读的时候先摘掉，句子就是 The book was due last week."},
+      {idx:[3], title:"找状语", note:"last week，时间状语。"}
+    ],
+    call:"was_due(The_book[that_I_borrowed], last_week)"
+  },
+  {
+    level:"从句入门",
+    en:[["What surprised me most","clause"],["was","verb"],["his attitude toward failure","pred"]],
+    zh:"最让我吃惊的是他对待失败的态度。",
+    steps:[
+      {idx:[1], title:"找谓语", note:"was 是系动词，它表示等号关系，不是动作。"},
+      {idx:[0], title:"找主语从句", note:"What surprised me most 整个是一个名词从句，作主语。里面 surprised 是从句谓语。"},
+      {idx:[2], title:"找表语", note:"his attitude toward failure 是表语，回答「是什么」。"}
+    ],
+    call:"= (What_surprised_me_most, his_attitude_toward_failure)"
+  },
+  {
+    level:"非谓语",
+    en:[["Having finished the report","clause"],["she","subj"],["left","verb"],["the office","obj"],["without saying goodbye","adv"]],
+    zh:"写完报告后，她没说再见就离开了办公室。",
+    steps:[
+      {idx:[2], title:"找谓语", note:"left 是主句谓语。Having finished 不是谓语——它是分词，只是修饰成分。"},
+      {idx:[1], title:"找主语", note:"she 是主句主语，也是分词的动作发出者。"},
+      {idx:[3], title:"找宾语", note:"the office。"},
+      {idx:[0], title:"处理分词", note:"Having finished the report 是完成式分词，表示这个动作发生在 left 之前。看到 having done，先想「先发生」。"},
+      {idx:[4], title:"找状语", note:"without saying goodbye，方式状语。"}
+    ],
+    call:"left(she, the_office, [after_finishing_report])"
+  },
+  {
+    level:"非谓语",
+    en:[["The problem","subj"],["to be solved","clause"],["is","verb"],["how we can reduce costs","clause"]],
+    zh:"要解决的问题是我们如何降低成本。",
+    steps:[
+      {idx:[2], title:"找谓语", note:"is 是系动词。"},
+      {idx:[0], title:"找主语", note:"The problem 是主语核心。"},
+      {idx:[1], title:"处理不定式", note:"to be solved 是不定式被动，修饰 problem。它不是一个独立动作。"},
+      {idx:[3], title:"找表语从句", note:"how we can reduce costs 整个作表语，回答「问题是什么」。"}
+    ],
+    call:"= (The_problem[to_be_solved], how_we_can_reduce_costs)"
+  },
+  {
+    level:"倒装",
+    en:[["Only when we understand the structure of a sentence","clause"],["can we read","verb"],["it","obj"],["efficiently","adv"]],
+    zh:"只有理解了句子的结构，我们才能高效地读懂它。",
+    steps:[
+      {idx:[1], title:"找谓语", note:"can we read 是倒装——助动词 can 跑到主语前面了。还原成正常语序是 we can read。"},
+      {idx:[0], title:"看倒装原因", note:"Only when... 放在句首，主句就必须倒装。看到 Only 开头，先预期主句倒装。"},
+      {idx:[2], title:"找宾语", note:"it 指代前面的 a sentence。"},
+      {idx:[3], title:"找状语", note:"efficiently，方式状语。"}
+    ],
+    call:"can_read(we, it, efficiently)  if [only_when_we_understand_structure]"
+  },
+  {
+    level:"倒装",
+    en:[["It was","clause"],["not until midnight","adv"],["that","clause"],["he","subj"],["finally finished","verb"],["the work","obj"]],
+    zh:"直到半夜他才终于完成了工作。",
+    steps:[
+      {idx:[4], title:"找谓语", note:"finished 才是真谓语。It was...that 是强调句的框架，先把框架拨开。"},
+      {idx:[3], title:"找主语", note:"he。"},
+      {idx:[5], title:"找宾语", note:"the work。"},
+      {idx:[0,1,2], title:"看强调框架", note:"It was ... that 是强调句的框架，它把 not until midnight 拎出来强调。还原成普通句是 He didn't finish the work until midnight."}
+    ],
+    call:"finished(he, the_work)  at [not_until_midnight]"
+  },
+  {
+    level:"长句实战",
+    en:[["The rapid expansion of the company","subj"],[", which surprised many investors,","clause"],["was largely driven","verb"],["by overseas demand","adv"]],
+    zh:"公司的快速扩张让许多投资者吃惊，这主要受海外需求驱动。",
+    steps:[
+      {idx:[2], title:"找谓语", note:"was driven 是被动谓语。被动句先问一句：谁做的？答案在后面 by 那里。"},
+      {idx:[0], title:"找主语", note:"The rapid expansion of the company，核心词是 expansion，of 短语只是修饰。"},
+      {idx:[1], title:"跳过插入语", note:"which surprised many investors 是非限定定语从句，两边有逗号，属于补充说明，先跳过不影响主干。"},
+      {idx:[3], title:"找动作发出者", note:"by overseas demand，被动句的动作来源。"}
+    ],
+    call:"was_driven(The_expansion, by_overseas_demand)"
+  },
+  {
+    level:"长句实战",
+    en:[["Researchers","subj"],["who study memory","clause"],["have found","verb"],["that sleep plays a critical role in learning","clause"]],
+    zh:"研究记忆的学者发现，睡眠在学习中起着关键作用。",
+    steps:[
+      {idx:[2], title:"找谓语", note:"have found 是主句谓语。注意 who study 里的 study 是从句谓语，别认错。"},
+      {idx:[0], title:"找主语", note:"Researchers。"},
+      {idx:[1], title:"处理定语从句", note:"who study memory 修饰 Researchers，摘掉后主句是 Researchers have found..."},
+      {idx:[3], title:"处理宾语从句", note:"that... 整个是 found 的内容，里面 sleep 是主语、plays 是谓语。"}
+    ],
+    call:"have_found(Researchers[who_study_memory], that[sleep_plays_a_role])"
+  },
+  {
+    level:"高级",
+    en:[["Had I known","clause"],["how difficult the task would be","clause"],[", I","subj"],["would have prepared","verb"],["more carefully","adv"]],
+    zh:"要是我早知道这任务这么难，就会准备得更仔细。",
+    steps:[
+      {idx:[3], title:"找谓语", note:"would have prepared 是主句谓语，虚拟语气。"},
+      {idx:[2], title:"找主语", note:"I。"},
+      {idx:[0], title:"识破倒装条件句", note:"Had I known = If I had known。省略 if 之后把 had 提到句首，这是第三条件句的倒装形式。"},
+      {idx:[1], title:"看宾语从句", note:"how difficult the task would be 是 known 的宾语。"},
+      {idx:[4], title:"找状语", note:"more carefully。"}
+    ],
+    call:"would_have_prepared(I, more_carefully)  if [had_known]"
+  },
+  {
+    level:"高级",
+    en:[["The extent","subj"],["to which the results can be generalized to other populations","clause"],["remains","verb"],["a matter of debate among researchers","pred"]],
+    zh:"这些结果能在多大程度上推广到其他人群，仍是研究者争论的问题。",
+    steps:[
+      {idx:[2], title:"找谓语", note:"remains 是系动词，谓语。别看句子长，动词只有一个。"},
+      {idx:[0], title:"找主语", note:"The extent 是主语核心，意思是「程度」。"},
+      {idx:[1], title:"处理介词+关系词从句", note:"to which... 是「介词 + 关系词」引导的定语从句，修饰 extent。to which 就是 to the extent。"},
+      {idx:[3], title:"找表语", note:"a matter of debate among researchers，回答主语「是什么」。"}
+    ],
+    call:"remains(The_extent[to_which...], a_matter_of_debate)"
+  },
+  {
+    level:"主谓割裂",
+    en:[["The way","subj"],["in which we approach problems","clause"],[", however trivial they may seem,","clause"],["determines","verb"],["our ultimate success","obj"]],
+    zh:"我们处理问题的方式——无论这些问题看起来多么琐碎——决定了我们最终的成败。",
+    steps:[
+      {idx:[3], title:"找谓语", note:"determines 是主句谓语。主语 The way 和它之间隔了两层从句，这就是主谓割裂。"},
+      {idx:[0], title:"找主语", note:"The way 是主语核心。"},
+      {idx:[1], title:"处理定语从句", note:"in which we approach problems 修饰 way，是割裂的第一层。"},
+      {idx:[2], title:"处理插入语", note:"however trivial they may seem 是插入的让步状语，用逗号隔开，先跳过。"},
+      {idx:[4], title:"找宾语", note:"our ultimate success。"}
+    ],
+    call:"determines(The_way[...], our_ultimate_success)"
+  },
+  {
+    level:"主谓割裂",
+    en:[["Scientists","subj"],[", driven by curiosity rather than profit,","clause"],["often make","verb"],["discoveries","obj"],["that change the world","clause"]],
+    zh:"科学家受好奇心而非利益驱动，常常做出改变世界的发现。",
+    steps:[
+      {idx:[2], title:"找谓语", note:"make 是主句谓语。注意 driven 是过去分词，不是谓语。"},
+      {idx:[0], title:"找主语", note:"Scientists。"},
+      {idx:[1], title:"处理插入分词", note:"driven by curiosity rather than profit 是过去分词短语作状语，插在主语和谓语之间。"},
+      {idx:[3], title:"找宾语", note:"discoveries。"},
+      {idx:[4], title:"处理定语从句", note:"that change the world 修饰 discoveries。"}
+    ],
+    call:"make(Scientists, discoveries[that_change_the_world])"
+  },
+  {
+    level:"多重嵌套",
+    en:[["Economists","subj"],["argue","verb"],["that","clause"],["the recession","clause"],[", which many feared would last for years,","clause"],["has actually ended","clause"],["sooner than expected","adv"]],
+    zh:"经济学家认为，许多人担心会持续多年的衰退，实际上比预期更早结束了。",
+    steps:[
+      {idx:[1], title:"找谓语", note:"argue 是主句谓语。后面 that 从句里还有 has ended。"},
+      {idx:[0], title:"找主语", note:"Economists。"},
+      {idx:[2,3,5], title:"处理宾语从句主干", note:"that the recession has actually ended 是宾语从句，主干是 the recession（主语）+ has ended（谓语）。"},
+      {idx:[4], title:"处理嵌套定语从句", note:"which many feared would last for years 修饰 recession，套在宾语从句内部，这就是多重嵌套。"},
+      {idx:[6], title:"找状语", note:"sooner than expected。"}
+    ],
+    call:"argue(Economists, that[the_recession_has_ended])"
+  },
+  {
+    level:"多重嵌套",
+    en:[["It is","clause"],["the very things","subj"],["we fear most","clause"],[", the tasks we keep postponing,","clause"],["that usually hold","verb"],["the key to our growth","obj"]],
+    zh:"正是我们最害怕的事情、我们一直拖延的任务，通常掌握着我们成长的钥匙。",
+    steps:[
+      {idx:[4], title:"找谓语", note:"hold 是谓语。It is...that 是强调框架，先拨开。"},
+      {idx:[0], title:"看强调框架", note:"It is...that 把 the very things... 拎出来强调。"},
+      {idx:[1], title:"找主语", note:"the very things 是主语核心。"},
+      {idx:[2], title:"处理定语从句", note:"we fear most 修饰 things。"},
+      {idx:[3], title:"处理同位语", note:"the tasks we keep postponing 是 things 的同位语，里面又套 we keep postponing。"},
+      {idx:[5], title:"找宾语", note:"the key to our growth。"}
+    ],
+    call:"hold(the_very_things, the_key_to_our_growth)"
+  },
+  {
+    level:"考研实战",
+    en:[["The irony","subj"],["is","verb"],["that","clause"],["the more information we have access to","clause"],[", the less we actually understand","clause"],["about the world around us","adv"]],
+    zh:"讽刺的是，我们能接触到的信息越多，对周围世界的理解反而越少。",
+    steps:[
+      {idx:[1], title:"找谓语", note:"is 是主句系动词。"},
+      {idx:[0], title:"找主语", note:"The irony。"},
+      {idx:[2], title:"处理表语从句", note:"that 引导表语从句，里面是 the more...the less... 结构。"},
+      {idx:[3,4], title:"看比较结构", note:"the more...the less... 是固定句型，前后两个都是完整从句。"},
+      {idx:[5], title:"找状语", note:"about the world around us。"}
+    ],
+    call:"= (The_irony, that[the_more..., the_less...])"
+  },
+  {
+    level:"考研实战",
+    en:[["Whether the benefits of artificial intelligence outweigh its risks","clause"],["is","verb"],["a question","pred"],["that researchers and policymakers alike must answer","clause"]],
+    zh:"人工智能的益处是否大于其风险，是研究者和决策者都必须回答的问题。",
+    steps:[
+      {idx:[1], title:"找谓语", note:"is 是主句系动词。"},
+      {idx:[0], title:"处理主语从句", note:"Whether...outweigh... 整个是主语从句，里面 outweigh 是从句谓语。"},
+      {idx:[2], title:"找表语", note:"a question。"},
+      {idx:[3], title:"处理定语从句", note:"that researchers... must answer 修饰 question。"}
+    ],
+    call:"= (Whether_AI_benefits_outweigh_risks, a_question[...])"
+  },
+  {
+    level:"考研实战",
+    en:[["Few people","subj"],["realize","verb"],["that","clause"],["the habits","clause"],["they form in their twenties","clause"],[", often without conscious thought,","adv"],["will shape","clause"],["the rest of their lives","clause"]],
+    zh:"很少有人意识到，他们在二十多岁时形成的习惯——往往是无意识中形成的——将塑造他们的余生。",
+    steps:[
+      {idx:[1], title:"找谓语", note:"realize 是主句谓语。"},
+      {idx:[0], title:"找主语", note:"Few people。"},
+      {idx:[2,3,6,7], title:"处理宾语从句主干", note:"that the habits will shape the rest of their lives 是宾语从句主干。"},
+      {idx:[4], title:"处理定语从句", note:"they form in their twenties 修饰 habits。"},
+      {idx:[5], title:"处理插入状语", note:"often without conscious thought 用逗号隔开，先跳过。"}
+    ],
+    call:"realize(Few_people, that[habits_will_shape_lives])"
+  },
+  {
+    level:"考研实战",
+    en:[["Only by acknowledging our limitations","clause"],["can we begin","verb"],["to understand","clause"],["the true extent","obj"],["of what is possible","clause"]],
+    zh:"只有承认我们的局限，我们才能开始理解什么是可能的真正边界。",
+    steps:[
+      {idx:[1], title:"找谓语", note:"can we begin 是倒装。Only by... 置首，主句倒装。"},
+      {idx:[0], title:"看倒装原因", note:"Only by acknowledging... 是方式状语，Only 置首触发倒装。"},
+      {idx:[2], title:"处理不定式", note:"to understand 是 begin 的宾语。"},
+      {idx:[3], title:"找宾语", note:"the true extent。"},
+      {idx:[4], title:"处理从句", note:"of what is possible 修饰 extent，里面 what 引导介词宾语从句。"}
+    ],
+    call:"can_begin(we, to_understand[the_true_extent])"
+  }
+];
+
+const tSent = document.getElementById('analysis-sentence');
+const tNote = document.getElementById('analysis-note');
+const tCall = document.getElementById('analysis-call');
+const tDots = document.getElementById('analysis-dots');
+const tQuestion = document.getElementById('analysis-question');
+const tFeedback = document.getElementById('analysis-feedback');
+const tZh = document.getElementById('analysis-zh');
+const tZhBtn = document.getElementById('analysis-zhBtn');
+const tList = document.getElementById('analysis-list');
+const tListBtn = document.getElementById('analysis-listBtn');
+const ANALYSIS_KEY = 'gram7.analysis.done';
+let doneSet = new Set(JSON.parse(localStorage.getItem(ANALYSIS_KEY) || '[]'));
+let tCur = 0, tStep = 0;
+
+function trainRender(){
+  const s = TRAIN[tCur];
+  document.getElementById('analysis-counter').textContent = (tCur+1) + ' / ' + TRAIN.length;
+  document.getElementById('analysis-level').textContent = s.level;
+  tZh.textContent = s.zh;
+  tZh.classList.add('hide');
+  tZhBtn.textContent = '👁️ 查阅翻译';
+  let html = '';
+  s.en.forEach((x, i) => {
+    const gap = (i > 0 && !/^[,.;:!?]/.test(x[0])) ? ' ' : '';
+    html += gap + '<span class="analysis-tok" data-i="' + i + '" data-r="' + x[1] + '">' + x[0] + '</span>';
+  });
+  tSent.innerHTML = html;
+  tDots.innerHTML = s.steps.map(() => '<span class="analysis-dot"></span>').join('');
+  tStep = 0;
+  updateQuestion();
+  tNote.classList.add('hide');
+  tNote.innerHTML = '';
+  tFeedback.textContent = '';
+  tCall.className = 'analysis-call';
+  tCall.textContent = '';
+  document.getElementById('analysis-prev').disabled = tCur === 0;
+  document.getElementById('analysis-next').disabled = tCur === TRAIN.length - 1;
+  renderList();
+}
+
+function updateQuestion(){
+  const s = TRAIN[tCur];
+  if (tStep < s.steps.length) {
+    tQuestion.textContent = '第 ' + (tStep+1) + ' / ' + s.steps.length + ' 步　' + s.steps[tStep].title;
+  } else {
+    tQuestion.textContent = '拆解完成 ✓';
+  }
+}
+
+function showNote(st){
+  tNote.innerHTML = '<b>' + st.title + '　</b>' + st.note;
+  tNote.classList.remove('hide');
+}
+
+function trainShowCall(s){
+  tCall.innerHTML = s.call.replace(/^([^(]+)/, '<span class="k">$1</span>');
+  tCall.className = 'analysis-call show';
+}
+
+function finishSentence(){
+  const s = TRAIN[tCur];
+  tSent.querySelectorAll('.analysis-tok').forEach(t => {
+    t.classList.remove('correct');
+    t.classList.add('on');
+  });
+  tQuestion.textContent = '拆解完成 ✓';
+  trainShowCall(s);
+  doneSet.add(tCur);
+  localStorage.setItem(ANALYSIS_KEY, JSON.stringify([...doneSet]));
+  renderList();
+}
+
+tSent.addEventListener('click', e => {
+  const tok = e.target.closest('.analysis-tok');
+  if (!tok) return;
+  const s = TRAIN[tCur];
+  if (tStep >= s.steps.length) return;
+  const i = parseInt(tok.dataset.i, 10);
+  const st = s.steps[tStep];
+  if (st.idx.indexOf(i) !== -1) {
+    st.idx.forEach(j => {
+      const el = tSent.querySelector('.analysis-tok[data-i="' + j + '"]');
+      if (el) el.classList.add('correct');
+    });
+    tDots.children[tStep].classList.add('done');
+    tFeedback.textContent = '';
+    showNote(st);
+    tStep++;
+    if (tStep < s.steps.length) {
+      updateQuestion();
+    } else {
+      finishSentence();
+    }
+  } else {
+    tok.classList.add('wrong');
+    tFeedback.textContent = '再试一次，注意看题。';
+    setTimeout(() => { tok.classList.remove('wrong'); }, 500);
+  }
+});
+
+tZhBtn.addEventListener('click', () => {
+  const hidden = tZh.classList.contains('hide');
+  tZh.classList.toggle('hide', !hidden);
+  tZhBtn.textContent = hidden ? '收起翻译' : '👁️ 查阅翻译';
+});
+
+tListBtn.addEventListener('click', () => {
+  tList.classList.toggle('hide');
+});
+
+function renderList(){
+  tList.innerHTML = TRAIN.map((s, i) => {
+    const done = doneSet.has(i);
+    return '<a class="analysis-item' + (i === tCur ? ' cur' : '') + '" data-i="' + i + '">' +
+      '<span class="analysis-item-no">' + String(i+1).padStart(2, '0') + '</span>' +
+      '<span class="analysis-item-lv">' + s.level + '</span>' +
+      '<span class="analysis-item-zh">' + s.zh + '</span>' +
+      '<span class="analysis-item-done">' + (done ? '✓' : '') + '</span>' +
+      '</a>';
+  }).join('');
+}
+
+tList.addEventListener('click', e => {
+  const item = e.target.closest('.analysis-item');
+  if (!item) return;
+  tCur = parseInt(item.dataset.i, 10);
+  trainRender();
+  tList.classList.add('hide');
+});
+
+document.getElementById('analysis-prev').addEventListener('click', () => { if (tCur > 0) { tCur--; trainRender(); } });
+document.getElementById('analysis-next').addEventListener('click', () => { if (tCur < TRAIN.length - 1) { tCur++; trainRender(); } });
+
+document.addEventListener('keydown', e => {
+  if (document.getElementById('view-analysis').classList.contains('hide')) return;
+  if (e.key === 'ArrowRight') { if (tCur < TRAIN.length - 1) { tCur++; trainRender(); } }
+  if (e.key === 'ArrowLeft') { if (tCur > 0) { tCur--; trainRender(); } }
+});
+
+function showView(name){
+  document.getElementById('view-grammar').classList.toggle('hide', name !== 'view-grammar');
+  document.getElementById('view-analysis').classList.toggle('hide', name !== 'view-analysis');
+}
+
+document.getElementById('toTrain').addEventListener('click', e => {
+  e.preventDefault();
+  showView('view-analysis');
+  document.getElementById('side').classList.remove('open');
+  window.scrollTo(0, 0);
+});
+
+document.getElementById('toLearn').addEventListener('click', e => {
+  e.preventDefault();
+  showView('view-grammar');
+});
+
+trainRender();
+</script>
+</body>
+</html>
